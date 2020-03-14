@@ -28,16 +28,16 @@
 
 .sidenav-wrapper-enter-active {
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
 }
 
-.sidenav-wrapper-exit {
+.sidenav-wrapper-exit  {
   opacity: 1;
 }
 
 .sidenav-wrapper-exit-active {
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
 }
 
 
