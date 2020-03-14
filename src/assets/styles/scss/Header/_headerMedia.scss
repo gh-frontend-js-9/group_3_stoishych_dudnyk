@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px ) {
+  .burger-menu {
+    display: flex;
+  }
+  .header-right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .header-wrapper {
+    padding: 0 20px 0 20px;
+  }
+}

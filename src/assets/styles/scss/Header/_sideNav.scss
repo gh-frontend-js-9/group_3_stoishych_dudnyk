@@ -1,0 +1,23 @@
+.sidenav {
+  background-color: white;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.sidenav-items {
+  padding: 0;
+  text-align: center;
+}
+
+.sidenav-items .nav-item {
+  margin-bottom: 20px;
+}
