@@ -5,6 +5,7 @@ import {HeaderButton} from "./HeaderButton";
 import {BurgerMenu} from "./BurgerMenu";
 import {Backdrop} from "../Backdrop/Backdrop";
 import {SideNav} from "./SideNav/SideNav";
+import {CSSTransition} from "react-transition-group";
 
 export const Header = () => {
     const [sideNavIsOpen, setSideNavIsOpen] = useState(false);
@@ -27,7 +28,10 @@ export const Header = () => {
                         <HeaderButton/>
                     </div>
                     <BurgerMenu onToggle={onBurgerMenuToggle}/>
-                    {sideNavIsOpen ? (<><Backdrop onClick={sidebarClose}/> <SideNav/></>) : null}
+                    {sideNavIsOpen? <Backdrop onClick={sidebarClose}/> : null}
+                    <CSSTransition in={sideNavIsOpen} timeout={500} classNames="sidenav-wrapper" unmountOnExit>
+                        <SideNav/>
+                    </CSSTransition>
                 </div>
             </div>
         </header>
