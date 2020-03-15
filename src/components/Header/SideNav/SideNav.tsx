@@ -7,7 +7,7 @@ export const SideNav = () => {
     return (
         <>
             <div className="sidenav">
-                <Logo/>
+                <Logo isWhite={false}/>
                 <Nav sideNav={true}/>
                 <HeaderButton/>
             </div>
