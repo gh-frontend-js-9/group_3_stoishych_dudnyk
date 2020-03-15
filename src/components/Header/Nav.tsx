@@ -18,11 +18,15 @@ export const Nav = (props:{sideNav:boolean}) => {
         {
             text: "Topics",
             href: "#"
+        },
+        {
+            text: "Subscribe",
+            href: "#"
         }
     ];
 
     return (
-        <nav className="nav">
+        <nav className={props.sideNav ? "sidenav-wrapper" :"nav"}>
             <ul className={props.sideNav ? "sidenav-items": "nav-items"}>
                 {navigationItems.map(obj => <NavItem text={obj.text} link={obj.href} key={obj.text}/>)}
             </ul>

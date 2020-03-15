@@ -1,9 +1,17 @@
 import React from "react";
+import {ReactComponent as SearchImg} from "../../assets/images/search.svg"
 
-export const HeaderButton = () => {
+
+/*const buttonStyle = {
+    backgroundImage: `url(${searchImg})`,
+    width: "24px",
+    height: "24px"
+};*/
+
+export const HeaderButton = (props:{isBlack:boolean}) => {
     return (
-        <button className="header-button">
-            <span className="header-button__text">Subscribe</span>
+        <button className={props.isBlack ? "header-button header-button_white" :"header-button"}>
+            <SearchImg/>
         </button>
     )
 };

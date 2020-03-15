@@ -2,8 +2,12 @@
   .burger-menu {
     display: flex;
   }
-  .header-right {
+  .nav,
+  .header-button {
     display: none;
+  }
+  .header-button_white {
+    display: block;
   }
 }
 
