@@ -3,3 +3,33 @@
   width: auto;
   background-color: #1b0042;
 }
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  max-width: 750px;
+}
+
+.hero__author {
+  color: white;
+  margin-bottom: 7px;
+}
+
+.hero__title,
+.hero__subtitle {
+  font-weight: 600;
+  color: white;
+}
+
+.hero__title {
+  font-size: 36px;
+  margin-bottom: 23px;
+}
+
+.hero__subtitle {
+  font-size: 18px;
+  line-height: 32px;
+}
