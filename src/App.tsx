@@ -1,6 +1,7 @@
 import React from 'react';
 import {Home} from "./pages/Home";
-import {Header} from "./components/Header";
+
+import {Header} from "./components/Header/Header";
 import Footer from './components/Footer';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -8,6 +9,7 @@ import { faVk, faPinterestP, faInstagram, faTwitter, faFacebookF } from '@fortaw
 import { } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF)
+
 
 function App() {
   return (

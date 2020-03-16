@@ -1,0 +1,61 @@
+@import './colors';
+
+.photo-card-container {
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+
+    @media only screen and (max-width: 450px) {
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+    }
+}
+
+
+.photo-card {
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+        transition: transform 0.1s;
+        transform: scale(1.02);
+    }
+
+    &__photo {
+        height: 100px;
+        width: 100%;
+    }
+
+    &__description {
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+
+    &__title {
+        font-size: 1.3em;
+    }
+
+    &__text {
+        height: 2.2em;
+        line-height: 1.1em;
+        overflow: hidden;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical; 
+
+    }
+
+    &__description, 
+    &__text {
+        color: $color3;
+    }
+
+    &__type,
+    &__author {
+        color: $color2
+    }
+}
