@@ -21,11 +21,11 @@ export const Header = () => {
         <header className="header">
             <div className="container">
                 <div className="header-wrapper">
-                    <Logo isWhite={true}/>
-                    <div className="header-wrapper header-right">
+                    <div className="header-wrapper header-left">
+                        <Logo isWhite={true}/>
                         <Nav sideNav={false}/>
-                        <HeaderButton/>
                     </div>
+                    <HeaderButton isBlack={false}/>
                     <BurgerMenu isWhite={true} onToggle={onBurgerMenuToggle}/>
                 </div>
             </div>

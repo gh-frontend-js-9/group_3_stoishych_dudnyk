@@ -12,7 +12,9 @@
   align-items: center;
 }
 
-
+.sidenav-wrapper {
+  margin-top: 15px;
+}
 .sidenav-items {
   padding: 0;
   text-align: center;
@@ -20,6 +22,10 @@
 
 .sidenav-items .nav-item__link {
   color: black;
+}
+
+.sidenav-items .nav-item__link:hover {
+  color: $secondary-color;
 }
 
 .sidenav-items .nav-item {
