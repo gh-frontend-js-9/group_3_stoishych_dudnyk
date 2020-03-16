@@ -8,7 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faVk, faPinterestP, faInstagram, faTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF)
+library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF);
 
 
 function App() {
