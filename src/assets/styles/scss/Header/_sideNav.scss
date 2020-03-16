@@ -1,0 +1,50 @@
+.sidenav {
+  background-color: white;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.sidenav-items {
+  padding: 0;
+  text-align: center;
+}
+
+.sidenav-items .nav-item__link {
+  color: black;
+}
+
+.sidenav-items .nav-item {
+  margin-bottom: 20px;
+}
+
+.sidenav-wrapper-enter {
+  opacity: 0;
+}
+
+.sidenav-wrapper-enter-active {
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+
+.sidenav-wrapper-exit  {
+  opacity: 1;
+}
+
+.sidenav-wrapper-exit-active {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+
+
+
+
