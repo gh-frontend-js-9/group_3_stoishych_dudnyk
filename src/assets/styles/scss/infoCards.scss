@@ -1,0 +1,121 @@
+@import './colors';
+
+p {
+    margin: 0
+}
+
+.info-container {
+    width: 90%;
+    margin: 20px auto;
+    font-size: 16px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__type {
+        font-size: 1.2em;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    &__link {
+        color: $color3;
+        cursor: pointer;
+        font-size: 0.9em;
+
+        &:hover {
+            transition: 0.1s;
+            color: $color4;
+        }
+    }
+
+    &__small-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        
+        @media only screen and (max-width: 450px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__cards-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        
+        @media only screen and (max-width: 450px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+}
+
+.big-card {
+    background-color: $color1;
+    color: white;
+
+    &__description {
+        font-size: 0.8em;
+        text-transform: uppercase;
+    }
+   
+    &__title {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    &__text {
+        height: 2.2em;
+        line-height: 1.1em;
+        margin-bottom: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical; 
+    } 
+}
+
+.small-card {
+    display: grid;
+    justify-content: space-between;
+    height: minmax(100px, auto);
+
+    &__type {
+        text-transform: uppercase;
+        color: $color3;
+        font-size: 0.9em;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    &:hover {
+        color: $color4;
+    }
+}
+
+.small-card,
+.big-card {
+    padding: 10px;
+    border: 1px $color3 solid;
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.08);   
+    cursor: pointer;
+    word-break: break-word;
+    overflow: hidden;
+    
+
+    &:hover {
+        transition: transform 0.1s;
+        transform: scale(1.02);
+    }
+}
