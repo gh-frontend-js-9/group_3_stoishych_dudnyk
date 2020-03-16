@@ -5,10 +5,10 @@ import {Header} from "./components/Header/Header";
 import Footer from './components/Footer';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { } from '@fortawesome/free-brands-svg-icons';
+import { faVk, faPinterestP, faInstagram, faTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { } from '@fortawesome/free-solid-svg-icons';
 
-library.add()
+library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF)
 
 
 function App() {

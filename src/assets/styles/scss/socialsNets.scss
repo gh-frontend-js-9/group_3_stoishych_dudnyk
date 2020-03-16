@@ -1,0 +1,30 @@
+.social-nets-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.social-link {
+    border-radius: 50%;
+    padding: 3px;
+    height: 20px;
+    width: 20px;
+    margin: 3px;
+    display: flex;
+    color: white;
+    
+    &:hover {
+        transition: 0.2s;
+        background-color: red;
+        color: black;
+    }
+
+    &_theme_gray {
+        background-color: silver;
+    }
+
+    &__icon {
+        margin: auto;
+    }
+}
