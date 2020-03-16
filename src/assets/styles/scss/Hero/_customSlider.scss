@@ -1,0 +1,32 @@
+.slick-slider {
+  overflow-x: hidden;
+}
+
+.slick-dots {
+  bottom: 53px !important;
+
+
+}
+
+// idk why, but changes css in library isn't working and I need to put this !important
+.slick-dots li button {
+  background-color: #d8d8d8 !important;
+  border-radius: 50%;
+}
+
+.slick-dots li button:before,
+.slick-dots li button {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.slick-dots li button:before {
+  content: "" !important;
+
+}
+.slick-dots li.slick-active button:before {
+  content: "";
+  background-color: #ff5480;
+  border-radius: 50%;
+  opacity: 1!important;
+}
