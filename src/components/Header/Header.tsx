@@ -22,7 +22,7 @@ export const Header = () => {
             <div className="container">
                 <div className="header-wrapper">
                     <div className="header-wrapper header-left">
-                        <Logo isWhite={true}/>
+                        <Logo colorClass='logo_white'/>
                         <Nav sideNav={false}/>
                     </div>
                     <HeaderButton isBlack={false}/>

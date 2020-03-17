@@ -1,0 +1,17 @@
+@import './colors';
+
+.logo {
+    &_black svg g path {
+        fill: $black;
+    }  
+
+    &_white svg g path {
+        fill: $white;
+    }
+
+    &_gray svg g path {
+        fill: $gray;
+    }
+
+}
+  

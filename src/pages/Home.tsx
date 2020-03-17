@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-      
+
+import '../assets/styles/scss/homeProfBlog/main.scss';
+
 import {Hero} from "../components/Hero/Hero";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -29,13 +31,15 @@ export const Home = () => {
     };
       
     return (
-        <main>
+        <main className='main'>
             <Slider {...sliderSettings}>
                 <Hero/>
                 <Hero/>
                 <Hero/>
             </Slider>
         
+            <div className='main__container'>
+
             {
                 data.thematic.map(el => {
                     return <InfoCardContainer {...el} key={el.type}/>
@@ -46,7 +50,8 @@ export const Home = () => {
         
             <PhotoCardsContainer cards={data.other}/>
         
-        
+            </div>
+
         </main>
     )
 };
