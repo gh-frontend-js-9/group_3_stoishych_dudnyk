@@ -1,0 +1,73 @@
+.reading-list {
+  margin-top: 173px;
+  margin-bottom: 168px;
+}
+.reading-card {
+  max-width: 200px;
+  width: 100%;
+  margin-top: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.reading-card__img {
+  position: absolute;
+  height: 100%;
+  max-width: 200px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+.reading-card__img-container {
+  position: relative;
+  height: 225px;
+  display: flex;
+  align-items: flex-end;
+}
+.reading-card__img_hover {
+  z-index: 0;
+  bottom: 1%;
+  width: 100%;
+  background-color: #f9f9fb;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 25px;
+  transition: 0.4s;
+}
+
+.reading-card__title {
+  text-align: center;
+  margin-top: 21px;
+  font-size: 24px;
+  color: #111210;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.reading-card:hover .reading-card__title {
+  color: $secondary-color;
+}
+
+.reading-card:hover .reading-card__img_hover {
+  transform: translateY(50%);
+}
+
+.reading-list-container {
+  display: flex;
+}
+
+.reading-card__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 225px;
+  max-width: 80px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  background-color: #FFF;
+  cursor: pointer;
+  margin-top: 5px;
+}

@@ -1,0 +1,15 @@
+@media screen and (max-width: 480px) {
+  .slick-slide > div {
+    display: flex;
+    justify-content: center;
+  }
+  .reading-card__next {
+    padding: 0 20px 0 20px;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .reading-list {
+    padding: 0 20px 0 20px;
+  }
+}

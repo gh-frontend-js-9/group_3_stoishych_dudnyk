@@ -10,6 +10,7 @@ import InfoCardContainer from '../components/CardComponents/InfoCardContainer';
 import PhotoCardsContainer from "../components/CardComponents/PhotoCardsContainer";
 
 import { IResponse, kindaServerResponse } from '../Data';
+import {ReadingList} from "../components/ReadingList/ReadingList";
 
       
 export const Home = () => {
@@ -41,9 +42,7 @@ export const Home = () => {
                 })
             }
         
-            {
-                // place for Reading list
-            }
+            <ReadingList/>
         
             <PhotoCardsContainer cards={data.other}/>
         
