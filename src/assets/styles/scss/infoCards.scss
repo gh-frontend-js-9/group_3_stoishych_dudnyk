@@ -1,45 +1,48 @@
 @import './colors';
 
-p {
-    margin: 0
-}
-
 .info-container {
-    width: 90%;
-    margin: 20px auto;
     font-size: 16px;
+    margin: 180px 0;
 
+    @media only screen and (max-width: 1180px) {
+        padding: 0 20px;
+        margin: 100px 0;
+    }
+    @media only screen and (max-width: 480px) {
+        margin: 40px 0;
+    }
+    
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
     }
 
     &__type {
-        font-size: 36px;
+        font-size: 2.25em;
         font-weight: 700;
         margin: 0;
     }
 
     &__link {
-        color: $color3;
+        color: $gray;
         cursor: pointer;
-        font-size: 0.9em;
+        font-size: 1em;
 
         &:hover {
             transition: 0.1s;
-            color: $color4;
+            color: $red;
         }
     }
 
     &__small-cards-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
+        grid-template-columns: minmax(auto, 280px) minmax(auto, 280px);
+        gap: 20px;
         
-        @media only screen and (max-width: 450px) {
+        @media only screen and (max-width: 768px) {
             grid-template-columns: 1fr;
         }
     }
@@ -47,9 +50,9 @@ p {
     &__cards-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
+        gap: 20px;
         
-        @media only screen and (max-width: 450px) {
+        @media only screen and (max-width: 768px) {
             grid-template-columns: 1fr;
         }
     }
@@ -57,23 +60,25 @@ p {
 }
 
 .big-card {
-    background-color: $color1;
-    color: white;
+    background-color: $darkBlue;
+    color: $white;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
 
     &__description {
-        font-size: 0.8em;
         text-transform: uppercase;
+        margin-bottom: 25px;
     }
    
     &__title {
-        font-size: 1.2em;
+        font-size: 1.75em;
         font-weight: 600;
+        margin-bottom: 40px;
     }
 
     &__text {
         height: 2.2em;
         line-height: 1.1em;
-        margin-bottom: 10px;
         overflow: hidden;
         text-overflow: ellipsis;
 
@@ -86,30 +91,29 @@ p {
 .small-card {
     display: grid;
     justify-content: space-between;
-    height: minmax(100px, auto);
+    background-color: $white;
+    gap: 10px;
+    grid-template-rows: minmax(auto, 1fr) minmax(auto, 2fr);
 
     &__type {
         text-transform: uppercase;
-        color: $color3;
-        font-size: 0.9em;
+        color: $gray;
     }
 
     &__title {
-        margin: 0;
-        font-size: 1em;
+        font-size: 1.125em;
     }
 
     &:hover {
-        color: $color4;
+        color: $red;
     }
 }
 
 .small-card,
 .big-card {
-    padding: 10px;
-    border: 1px $color3 solid;
-    border-radius: 5px;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.08);   
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     word-break: break-word;
     overflow: hidden;

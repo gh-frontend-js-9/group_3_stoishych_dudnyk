@@ -1,24 +1,40 @@
+@import './colors';
 
 .footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
+    padding: 20px;
+    @media only screen and (max-width: 1180px) {
+        padding: 20px;
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        gap: 10px;
+        max-width: 1180px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
 
     &__rights {
-        color: silver;
+        color: $gray;
+        justify-self: end;
+        text-align: center;
         margin: 0;
+
     }
 }
 
 @media screen and (max-width: 450px) {        
     .footer {
-        grid-template-columns: 1fr;
+
+        &__container {
+            grid-template-columns: 1fr;
+        }
 
         &__rights {
-            text-align: center;
+            justify-self: center;
         }
     }
 }

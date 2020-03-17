@@ -7,11 +7,15 @@ import IconContainer from './socialNets/IconContainer';
 
 const Footer = () => {
     return (
-        <div className='footer'>
-            <img src={logo} alt='Logo'/>
-            <IconContainer />
-            <p className='footer__rights'>All Rights Reserved 2018 BehindMars</p>
-        </div>
+        <footer className='footer'>
+            <div className='footer__container'>
+                <img src={logo} alt='Logo'/>
+                
+                <IconContainer />
+
+                <p className='footer__rights'>All Rights Reserved 2018 BehindMars</p>
+            </div>
+        </footer>
     )
 }
 

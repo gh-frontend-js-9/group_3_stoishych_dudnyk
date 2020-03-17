@@ -1,3 +1,5 @@
+@import './colors';
+
 .social-nets-container {
     width: 100%;
     display: flex;
@@ -12,16 +14,16 @@
     width: 20px;
     margin: 3px;
     display: flex;
-    color: white;
+    color: $white;
     
     &:hover {
         transition: 0.2s;
-        background-color: red;
-        color: black;
+        background-color: $red;
+        color: $black;
     }
 
     &_theme_gray {
-        background-color: silver;
+        background-color: $gray;
     }
 
     &__icon {
