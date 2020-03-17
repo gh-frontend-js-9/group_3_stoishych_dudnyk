@@ -12,12 +12,13 @@ p {
     &__header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 10px;
         margin-bottom: 10px;
     }
 
     &__type {
-        font-size: 1.2em;
+        font-size: 36px;
         font-weight: 700;
         margin: 0;
     }
