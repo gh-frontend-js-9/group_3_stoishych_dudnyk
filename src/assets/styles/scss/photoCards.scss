@@ -24,6 +24,7 @@
     cursor: pointer;
     display: grid;
     gap: 20px;
+    word-break: break-word;
 
     &:hover {
         transition: transform 0.1s;
@@ -31,7 +32,7 @@
     }
 
     &__photo {
-        height: 20vh;
+        // height: 20vh;
         width: 100%;
     }
 
@@ -44,8 +45,9 @@
     }
 
     &__text {
-        height: 2.2em;
-        line-height: 1.1em;
+        height: 2.2em !important;
+        line-height: 1.1em !important;
+        font-size: 1em !important;
         overflow: hidden;
 
         display: -webkit-box;

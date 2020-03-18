@@ -1,13 +1,13 @@
 import React from 'react';
 
-import  { ICard } from '../../interfaces/cardInterfaces';
+import  { IPost } from '../../interfaces/cardInterfaces';
 
-const BigInfoCard = (props:ICard) => {
+const BigInfoCard = (props:IPost) => {
     return (
         <div className='big-card'>
-            <p className='big-card__description'>By {props.author} in {props.type} process</p>
+            <p className='big-card__description'>By {props.author} in {props.category[0]} process</p>
             <h3 className='big-card__title'>{props.title}</h3>
-            <p  className='big-card__text'>{props.text}</p>
+            <p  className='big-card__text'  dangerouslySetInnerHTML={{ __html:props.content }}></p>
         </div>
     )
 }

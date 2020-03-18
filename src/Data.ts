@@ -1,11 +1,4 @@
-import { ICardContainer, ICard } from './interfaces/cardInterfaces';
-
-export interface IResponse {
-    thematic: ICardContainer[],
-    other: ICard[]
-}
-
-export let kindaServerResponse:IResponse = {
+export let kindaServerResponse:any = {
     thematic: [
         {
             type: 'Popular',

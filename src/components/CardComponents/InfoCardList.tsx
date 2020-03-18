@@ -3,19 +3,19 @@ import React from 'react';
 import BigInfoCard from './BigInfoCard'
 import SmallInfoCard from './SmallInfoCard';
 
-import { ICardContainer } from '../../interfaces/cardInterfaces';
+import { IPostsBlock, IPost } from '../../interfaces/cardInterfaces';
 
-const InfoCardList = (props:ICardContainer) => {
+const InfoCardList = (props:IPostsBlock) => {
     return (
         <div className='info-container__cards-list'>
             
-            <BigInfoCard {...props.cards[0]} />
+            <BigInfoCard {...props.docs[0]} />
 
             <div className='info-container__small-cards-container'>
-                {props.cards.map((el, index) => {
+                {props.docs.map((el, index) => {
                     return index === 0 
                         ? ''
-                        : <SmallInfoCard {...el}/>
+                        : <SmallInfoCard {...el} key={el._id}/>
                 })}
             </div> 
         
