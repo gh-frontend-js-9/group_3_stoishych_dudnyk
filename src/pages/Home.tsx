@@ -65,7 +65,7 @@ export const Home = () => {
     return (
         <main className='main'>
             <Slider {...sliderSettings}>
-                {heroData.map(obj => <Hero author={obj.author} title={obj.title} subtitle={obj.subtitle}/>)}
+                {heroData.map((obj, index) => <Hero author={obj.author} title={obj.title} subtitle={obj.subtitle} key={index}/>)}
             </Slider>
 
             <div className='main__container'>
