@@ -16,7 +16,8 @@ import PhotoCardsContainer from "../components/CardComponents/PhotoCardsContaine
 import { IPostsBlock } from '../interfaces/cardInterfaces';
 import {ReadingList} from "../components/ReadingList/ReadingList";
 
-      
+import {heroData} from "../components/Hero/HeroData";
+
 export const Home = () => {
       
     let [popular, setPopular] = useState<IPostsBlock|any>({});
@@ -59,15 +60,14 @@ export const Home = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
-    
+    // I think that hero should be static element because user should immediately see first content and
+    // parsing hero section from back wont show content right now
     return (
         <main className='main'>
             <Slider {...sliderSettings}>
-                <Hero/>
-                <Hero/>
-                <Hero/>
+                {heroData.map(obj => <Hero author={obj.author} title={obj.title} subtitle={obj.subtitle}/>)}
             </Slider>
-        
+
             <div className='main__container'>
 
  
