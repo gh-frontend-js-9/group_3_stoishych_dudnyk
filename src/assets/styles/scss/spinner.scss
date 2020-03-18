@@ -1,0 +1,11 @@
+@import './colors';
+
+.spinner {
+    color: $darkBlue;    
+    display: flex;
+    justify-content: center;
+
+    &_mg_10 {
+        padding: 10px;
+    }
+}

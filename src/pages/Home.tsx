@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import requestApi from '../requestAPI';
 
+import Spinner from '../components/Spinner';
 import '../assets/styles/scss/homeProfBlog/main.scss';
 
 import {Hero} from "../components/Hero/Hero";
@@ -73,24 +74,24 @@ export const Home = () => {
  
             { Object.keys(popular).length !== 0 
                 ? <InfoCardContainer {...popular} key={popular._id}/>
-                : ''
+                : <Spinner size={2}/>
             }
 
             { Object.keys(essential).length !== 0 
                 ? <InfoCardContainer {...essential} key={essential._id}/>
-                : ''
+                : <Spinner size={2}/>
             }
 
             { Object.keys(freelance).length !== 0 
                 ? <InfoCardContainer {...freelance} key={freelance._id}/>
-                : ''
+                : <Spinner size={2}/>
             }
 
             <ReadingList/>
             
             { Object.keys(popular).length !== 0
                 ? <PhotoCardsContainer cards={[popular.docs[2], popular.docs[4]]}/>
-                : ''
+                : <Spinner size={2}/>
             }
 
             </div>
