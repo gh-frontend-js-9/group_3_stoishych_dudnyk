@@ -8,7 +8,7 @@
     gap: 25px;
     font-size: 16px;
     
-    @media only screen and (max-width: 1180px) {
+    @media only screen and (max-width: 1220px) {
         padding: 0 20px 100px;
         font-size: 14px;
     }
@@ -26,14 +26,13 @@
     display: grid;
     gap: 20px;
     word-break: break-word;
+    transition: transform 0.3s;
 
     &:hover {
-        transition: transform 0.1s;
         transform: scale(1.02);
     }
 
     &__photo {
-        // height: 20vh;
         width: 100%;
     }
 
@@ -43,12 +42,12 @@
 
     &__title {
         font-size: 1.75em;
+        line-height: 46px;
     }
 
     &__text {
-        height: 2.2em !important;
-        line-height: 1.1em !important;
-        font-size: 1em !important;
+        height: 64px;
+        line-height: 32px;
         overflow: hidden;
 
         display: -webkit-box;
