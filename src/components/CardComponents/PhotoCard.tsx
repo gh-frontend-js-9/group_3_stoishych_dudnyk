@@ -3,10 +3,7 @@ import React from 'react';
 import { IPost } from '../../interfaces/cardInterfaces';
 
 const PhotoCard = (props: IPost) => {
-    
-    const randomColor = () => Math.round(Math.random() * 255) ;
-    
-
+        
     return (
         <div className='photo-card'>
             <div className='photo-card__photo'>

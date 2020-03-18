@@ -3,7 +3,7 @@ import React from 'react';
 import BigInfoCard from './BigInfoCard'
 import SmallInfoCard from './SmallInfoCard';
 
-import { IPostsBlock, IPost } from '../../interfaces/cardInterfaces';
+import { IPostsBlock} from '../../interfaces/cardInterfaces';
 
 const InfoCardList = (props:IPostsBlock) => {
     return (

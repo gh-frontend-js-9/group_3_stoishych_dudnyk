@@ -14,7 +14,7 @@ import InfoCardContainer from '../components/CardComponents/InfoCardContainer';
 import PhotoCardsContainer from "../components/CardComponents/PhotoCardsContainer";
 
 
-import { IPostsBlock } from '../interfaces/cardInterfaces';
+import { IPostsBlock, IPost } from '../interfaces/cardInterfaces';
 import {ReadingList} from "../components/ReadingList/ReadingList";
 
 import {heroData} from "../components/Hero/HeroData";
@@ -28,6 +28,7 @@ export const Home = () => {
     useEffect(() => {
         requestApi.getPostsList('?category=popular&page=1&limit=5&fields=title,category,author,content,featuredImage')
         .then((resp) => {
+            resp.data.docs = resp.data.docs.map(( el:IPost, index:number) => ({...el, author: 'man' + index}))
             setPopular({
                 ...resp.data,
                 title: "Popular"
@@ -38,6 +39,7 @@ export const Home = () => {
     useEffect(() => {
         requestApi.getPostsList('?category=essential&page=1&limit=5&fields=title,category,author,content')
         .then((resp) => {
+            resp.data.docs = resp.data.docs.map(( el:IPost, index:number) => ({...el, author: 'man' + index}))
             setEssential({
                 ...resp.data,
                 title: "Essential"
@@ -48,8 +50,10 @@ export const Home = () => {
     useEffect(() => {
         requestApi.getPostsList('?category=freelance&page=1&limit=5&fields=title,category,author,content')
         .then((resp) => {
+            resp.data.docs = resp.data.docs.map(( el:IPost, index:number) => ({...el, author: 'man' + index}))
+            
             setFreelance({
-                ...resp.data,
+                ...resp.data, 
                 title: "Freelance"
             });
         });
