@@ -1,17 +1,15 @@
 import React from "react";
 
-export const Hero = () => {
-    //here will be card as main content
+export const Hero = (props:{author:string, title: string, subtitle: string}) => {
     return (
         <div className="hero">
             <div className="container">
                 <div className="hero-wrapper">
                     <p className="hero__author">
-                        BY &nbsp; TOMAS LAURINAVICIUS &nbsp; IN &nbsp; DESIGN PROCESS
+                        {props.author}
                     </p>
-                    <h1 className="hero__title">How to Create a PayPal Donate Button for Your WordPress Site</h1>
-                    <h3 className="hero__subtitle">User research is the reality check every project needs.
-                        Here’s our guide to why you should be doing it — and how to get started.</h3>
+                    <h1 className="hero__title">{props.title}</h1>
+                    <h3 className="hero__subtitle">{props.subtitle}</h3>
                 </div>
             </div>
         </div>

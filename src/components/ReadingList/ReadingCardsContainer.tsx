@@ -1,10 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef} from "react";
 import {ReadingCard} from "./ReadingCard";
 import Slider from "react-slick";
 import {ReadingCardsNext} from "./ReadingCardsNext";
 
 export const ReadingCardsContainer = () => {
-
+    //just to make more then 3 elements in slider, when categories will be more then 4-5, then I'll parse it from back
     const pseudoData = [
         {
             title: "UI design",
@@ -43,6 +43,13 @@ export const ReadingCardsContainer = () => {
         speed: 500,
         responsive: [
             {
+              breakpoint: 1160,
+              settings:  {
+                  slidesToShow: 4,
+                  slidesToScroll: 1
+              }
+            },
+            {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -50,14 +57,14 @@ export const ReadingCardsContainer = () => {
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 490,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
