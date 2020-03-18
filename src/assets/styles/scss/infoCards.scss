@@ -71,7 +71,7 @@
 
     &__description {
         text-transform: uppercase;
-        line-height: 46px;
+        line-height: 30px;
     }
    
     &__title {
@@ -79,6 +79,11 @@
         font-weight: 600;
         margin-bottom: 15px;
         line-height: 46px;
+
+        @media screen and (max-width: 380px)   {
+            font-size: 1.5em;
+            line-height: 40px;
+        }
     }
 
     &__text {
@@ -103,6 +108,7 @@
 
     &__type {
         text-transform: uppercase;
+        line-height: 30px;
         color: $gray;
     }
 
