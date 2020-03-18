@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-import { ICard } from '../../interfaces/cardInterfaces';
+import { IPost } from '../../interfaces/cardInterfaces';
 
 
-const SmallInfoCard = (props:ICard) => {
+const SmallInfoCard = (props:IPost) => {
     return (
         <div className='small-card'>
-            <p className='small-card__type'>{props.type}</p>
+            <p className='small-card__type'>{props.category[0]}</p>
             <h3 className='small-card__title'>{props.title}</h3>
         </div>
     )

@@ -4,10 +4,10 @@ import '../../assets/styles/scss/photoCards.scss';
 
 
 import PhotoCard from './PhotoCard';
-import  { ICard } from '../../interfaces/cardInterfaces';
+import  { IPost } from '../../interfaces/cardInterfaces';
 
 interface IProps {
-    cards: ICard[]
+    cards: IPost[]
 }
 
 const PhotoCardsContainer = (props: IProps) => {
@@ -15,7 +15,7 @@ const PhotoCardsContainer = (props: IProps) => {
         <div className='photo-card-container'>
             {
                 props.cards.map(el => {
-                    return <PhotoCard {...el}/>
+                    return <PhotoCard {...el} key={el._id}/>
                 })
             }
         </div>

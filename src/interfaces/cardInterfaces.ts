@@ -1,12 +1,20 @@
-export interface ICardContainer {
-    type: string,
-    cards: ICard[],
+export interface IPostsBlock extends IResponse {
+    title: string
 }
 
-export interface ICard {
+export interface IResponse {
+    docs: IPost[],
+    total: number,
+    limit: number,
+    page: number,
+    pages: number
+}
+
+export interface IPost {
+    category: string[],
+    _id: string,
     title: string,
-    text: string,
-    key: string,
-    type: string,
-    author: string
+    content: string,
+    author: string,
+    featuredImage?: string
 }
