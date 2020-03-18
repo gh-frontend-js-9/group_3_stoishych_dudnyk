@@ -6,9 +6,11 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 25px;
+    font-size: 16px;
     
     @media only screen and (max-width: 1180px) {
         padding: 0 20px 100px;
+        font-size: 14px;
     }
 
     @media only screen and (max-width: 768px) {
@@ -20,7 +22,6 @@
 
 
 .photo-card {
-    font-size: 16px;
     cursor: pointer;
     display: grid;
     gap: 20px;
