@@ -6,11 +6,6 @@ const PhotoCard = (props: IPost) => {
     
     const randomColor = () => Math.round(Math.random() * 255) ;
     
-    const textStyle = {
-        height: '2.2em',
-        lineHeight: '1.1em',
-        fontSize: '1em'
-    }
 
     return (
         <div className='photo-card'>
@@ -27,9 +22,7 @@ const PhotoCard = (props: IPost) => {
 
             <h3 className='photo-card__title'>{props.title}</h3>
             
-            <p className='photo-card__text' 
-                style={textStyle}
-                dangerouslySetInnerHTML={{ __html:props.content }}></p>
+            <p className='photo-card__text' dangerouslySetInnerHTML={{ __html:props.content }}></p>
         </div>
     )
 }
