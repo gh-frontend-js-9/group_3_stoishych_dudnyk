@@ -14,7 +14,7 @@ const PhotoCardsContainer = (props: IProps) => {
         <div className='photo-card-container'>
             {
                 props.cards.map(el => {
-                    return <PhotoCard {...el} key={el._id}/>
+                    return <PhotoCard key={el._id}  post={el} isText={true}/>
                 })
             }
         </div>
