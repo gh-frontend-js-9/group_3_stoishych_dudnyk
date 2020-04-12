@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../assets/styles/scss/infoCards.scss';
+import '../../assets/styles/scss/Cards/infoCards.scss';
 
 import InfoCardList from './InfoCardList';
 import { IPostsBlock } from '../../interfaces/cardInterfaces';

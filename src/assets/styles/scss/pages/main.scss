@@ -1,0 +1,10 @@
+@import '../colors';
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    &_bg_light-gray {
+        background-color: $lightGray;
+    }
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import requestApi from '../requestAPI';
 
 import Spinner from '../components/Spinner';
-import '../assets/styles/scss/homeProfBlog/main.scss';
+import '../assets/styles/scss/pages/main.scss';
 
 import {Hero} from "../components/Hero/Hero";
 import "slick-carousel/slick/slick.css";
@@ -68,7 +68,7 @@ export const Home = () => {
     // I think that hero should be static element because user should immediately see first content and
     // parsing hero section from back wont show content right now
     return (
-        <main className='main'>
+        <main className='container container_bg_light-gray'>
             <Slider {...sliderSettings}>
                 {heroData.map((obj, index) => <Hero author={obj.author} title={obj.title} subtitle={obj.subtitle} key={index}/>)}
             </Slider>

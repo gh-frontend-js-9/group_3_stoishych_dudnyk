@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 import { IPost } from '../../interfaces/cardInterfaces';
-
 
 const SmallInfoCard = (props:IPost) => {
     return (

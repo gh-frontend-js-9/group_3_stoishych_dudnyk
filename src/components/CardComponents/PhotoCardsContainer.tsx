@@ -1,7 +1,6 @@
 import React from 'react';
 
-import '../../assets/styles/scss/photoCards.scss';
-
+import '../../assets/styles/scss/Cards/photoCards.scss';
 
 import PhotoCard from './PhotoCard';
 import  { IPost } from '../../interfaces/cardInterfaces';
