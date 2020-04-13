@@ -68,7 +68,7 @@ export const Home = () => {
     // I think that hero should be static element because user should immediately see first content and
     // parsing hero section from back wont show content right now
     return (
-        <main className='container container_bg_light-gray'>
+        <main className='main main_bg_light-gray'>
             <Slider {...sliderSettings}>
                 {heroData.map((obj, index) => <Hero author={obj.author} title={obj.title} subtitle={obj.subtitle} key={index}/>)}
             </Slider>
