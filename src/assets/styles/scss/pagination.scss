@@ -1,0 +1,45 @@
+@import './colors';
+
+.pagination {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__number {
+        font-size: 1.1em;
+        width: 80px;
+        height: 80px;
+        background-color: $darkGray;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+
+        &:hover {
+            background-color: $purpleBlue;
+        }
+
+        &_active {
+            background-color: $red;
+        }
+    }
+
+    &__dots {
+        font-size: 30px;
+        color: $darkGray;
+        margin: 0 10px;
+
+        &:hover {
+            color: $purpleBlue;
+        }
+    }
+
+    &__dots,
+    &__number {
+        transition: 0.3s;
+        cursor: pointer;
+
+    }
+}

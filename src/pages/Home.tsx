@@ -26,7 +26,7 @@ export const Home = () => {
     let [freelance, setFreelance] = useState<IPostsBlock|any>({});
     
     useEffect(() => {
-        requestApi.getPostsList('?category=popular&page=1&limit=5&fields=title,category,author,content,featuredImage')
+        requestApi.getPostsList('?category=popular&page=1&limit=5&fields=title,category,author,featuredImage,description')
         .then((resp) => {
             resp.data.docs = resp.data.docs.map(( el:IPost, index:number) => ({...el, author: 'man' + index}))
             setPopular({
@@ -37,7 +37,7 @@ export const Home = () => {
     }, []);
 
     useEffect(() => {
-        requestApi.getPostsList('?category=essential&page=1&limit=5&fields=title,category,author,content')
+        requestApi.getPostsList('?category=essential&page=1&limit=5&fields=title,category,author,description')
         .then((resp) => {
             resp.data.docs = resp.data.docs.map(( el:IPost, index:number) => ({...el, author: 'man' + index}))
             setEssential({
@@ -48,7 +48,7 @@ export const Home = () => {
     }, []);
     
     useEffect(() => {
-        requestApi.getPostsList('?category=freelance&page=1&limit=5&fields=title,category,author,content')
+        requestApi.getPostsList('?category=freelance&page=1&limit=5&fields=title,category,author,description')
         .then((resp) => {
             resp.data.docs = resp.data.docs.map(( el:IPost, index:number) => ({...el, author: 'man' + index}))
             

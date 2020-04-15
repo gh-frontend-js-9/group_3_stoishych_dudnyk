@@ -1,0 +1,42 @@
+@import './colors';
+
+.tag {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+    background: $white;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 7px 8px 7px 0;
+    transition: 0.3s;
+
+    &_active {
+        background-color: $purpleBlue;
+        color: $white;
+    }
+
+    &__title {
+        text-transform: capitalize;
+        font-size: 0.9em;
+        margin-right: 10px;
+    }
+
+    &__close-icon {
+        transition: 0.3s;
+        color: $gray;
+
+        &:hover {
+            transform: scale(1.3);
+        }
+        
+    }
+
+    &:hover {
+        background-color: $red;
+        color: $white;
+        
+        .tag__close-icon {
+            color: $white;
+        }
+
+    }
+}

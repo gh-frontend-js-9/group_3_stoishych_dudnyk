@@ -1,0 +1,38 @@
+@import '../colors';
+
+
+.sm-card {
+    display: grid;
+    grid-auto-rows: max-content;
+    cursor: pointer;
+    
+
+    &_col_2 {
+        grid-template-columns: auto auto;
+        column-gap: 20px;
+        align-items: center;
+    }
+
+    &__image{
+        width: 80px;
+        height: 80px;
+        word-break: break-all;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    &__tags {
+        word-break: break-all;
+        color: $gray;
+        line-height: 30px;  
+    }
+
+    &__title {
+        transition: 0.3s;
+        word-break: break-all;
+        font-weight: 600;
+    }
+
+    &:hover &__title {
+        color: $red;
+    }
+}

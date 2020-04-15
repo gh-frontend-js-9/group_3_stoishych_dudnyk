@@ -12,7 +12,7 @@ const PhotoCard = (props: IProps) => {
     return (
         <div className='photo-card'>
             <div className='photo-card__photo'>
-                <img src={props.post.featuredImage} className='photo-card__photo' alt={props.post.title}/>
+                <img src={props.post.featuredImage || 'https://picsum.photos/700'} className='photo-card__photo' alt={props.post.title}/>
             </div>
             
             <p className='photo-card__description'> 
@@ -26,8 +26,8 @@ const PhotoCard = (props: IProps) => {
             
             {
                 props.isText ? 
-                    <p className='photo-card__text' 
-                        dangerouslySetInnerHTML={{ __html:props.post.content }}>
+                    <p className='photo-card__text'>
+                        {props.post.description}
                     </p>
                 : null
             }

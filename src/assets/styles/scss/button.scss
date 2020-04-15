@@ -1,0 +1,22 @@
+@import './colors';
+
+.btn {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+    padding: 6px;
+    color: white;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: $purpleBlue;
+    }
+    
+    &_bg_pink {
+        background-color: $red;
+    }
+    
+}
