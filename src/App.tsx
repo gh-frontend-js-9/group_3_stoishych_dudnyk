@@ -2,6 +2,8 @@ import React from 'react';
 import {Home} from "./pages/Home";
 import Author from './pages/Author';
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import {Header} from "./components/Header/Header";
 import Footer from './components/Footer';
 
@@ -16,12 +18,16 @@ library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF,
 
 function App() {
   return (
-        <>
+        <Router>
           <Header />
-          {/* <Home /> */}
-          <Author />
+          
+          <Switch>
+            <Route path='/author' component={Author} />
+            <Route path='/' component={Home} />
+          </Switch>
+        
           <Footer />
-        </>
+        </Router>
   );
 }
 
