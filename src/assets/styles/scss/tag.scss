@@ -12,6 +12,10 @@
     &_active {
         background-color: $purpleBlue;
         color: $white;
+
+        .tag__close-icon {
+            color: $white;
+        }
     }
 
     &__title {

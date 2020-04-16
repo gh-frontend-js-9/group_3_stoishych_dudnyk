@@ -8,7 +8,11 @@ import Pagination from './Pagination';
 
 import "../../assets/styles/scss/Cards/photoCards.scss";
 
-const News:React.FC = () => {
+interface IProps {
+    classes?: string
+}
+
+const News:React.FC<IProps> = (props) => {
     
     let [posts, setPosts] = useState<IPost[]>([]);
     let [pages, setPages] = useState<number>(0);
@@ -22,10 +26,9 @@ const News:React.FC = () => {
         });
     }, [current])
     
-    console.log(posts)
     return (
         <>
-            <ul>
+            <ul className={props.classes}>
                 { posts.map(post => <PhotoCard post={post} isText={false} key={post._id} />) }
             </ul>
 

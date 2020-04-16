@@ -4,10 +4,14 @@ import '../assets/styles/scss/pages/main.scss';
 import '../assets/styles/scss/pages/author.scss';
 import '../assets/styles/scss/calendar.scss'
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import requestAPI from '../requestAPI';
 
 import { IPost } from '../interfaces/cardInterfaces';
 
+import {ReadingCardsContainer }from '../components/ReadingList/ReadingCardsContainer';
 
 import Advertisement from '../components/Advertisement';
 import IconContainer from '../components/socialNets/IconContainer';
@@ -42,42 +46,77 @@ const Author:React.FC = () => {
         })
     }, [])
 
-
-
+    const sliderSettings = {
+        dots: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }  
+        ]
+    };
+    
     return (
         <main className="main main_bg_light-gray">
             <section className='author-page main__container'>
+                
                 <section className="section1">
 
-                    <News />
+                    <News classes="author-page__news" />
 
-                    <div className="author-page__subscribe"> 
-                        <p className="author-page__subscribe-title author-page__subscribe-title_size_lg">Get free web design insights...</p>
-                        <p className="author-page__subscribe-description">In your inbox, every other week. And unsubscribe in a click, if you want.</p>
+                    <div className="author-page__subscribe author-page__subscribe_offset"> 
+                        <p className="author-page__subscribe-title author-page__subscribe-title_size_lg">
+                            Get free web design insights...
+                        </p>
+                        <p className="author-page__subscribe-description">
+                            In your inbox, every other week. And unsubscribe in a click, if you want.
+                        </p>
                         <Subscribe size="lg" />
                     </div>
-
+                   
                 </section>
 
 
                 <section className="section2" ref={myRef}>
                     
-                    <Search />
+                    <Search classes="author-page__search" />
                 
-                    <SmallCardsContainer posts={popular} isPhoto={true}>Popular Posts</SmallCardsContainer>
+                    <SmallCardsContainer posts={popular} isPhoto={true} classes="author-page__sm-cards-container">
+                        Popular Posts
+                    </SmallCardsContainer >
 
-                    <SmallCardsContainer posts={recent} isPhoto={false}>Recent Posts</SmallCardsContainer>
+                    <SmallCardsContainer posts={recent} isPhoto={false} classes="author-page__sm-cards-container">
+                        Recent Posts
+                    </SmallCardsContainer>
 
-                    <article className="social-media">
+                    <div className="author-page__subscribe author-page__subscribe_bottom-offset author-page__subscribe_bg_white"> 
+                        <span className="author-page__subscribe-title author-page__subscribe-title_size_sm">Subscribe</span>
+                        <Subscribe size="sm" classes="subscribe"/>   
+                    </div>
+
+                    <article className="social-media author-page__social-media">
                         <span className="social-media__title">Social Media</span>
                         <IconContainer themeNumber='2' size='md' position='around' />
                     </article>
 
-
-                    <div className="author-page__subscribe author-page__subscribe_bg_white"> 
-                        <span className="author-page__subscribe-title author-page__subscribe-title_size_sm">Subscribe</span>
-                        <Subscribe size="sm" />   
-                    </div>
+                    <ReadingCardsContainer settings={sliderSettings} classes="author-page__reading-list-container"/>
 
                     <Calendar value={date} onChange={setDate as OnChangeDateCallback}/>
 
@@ -86,9 +125,9 @@ const Author:React.FC = () => {
                     <TagContainer numberOfTags={10} classes="author-page__tag-container"/>
                     
                 </section>
-            </section>
-            
+                
 
+            </section>
         </main>
     )
 }

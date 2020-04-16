@@ -7,13 +7,14 @@ import '../../assets/styles/scss/Cards/smallCardsContainer.scss';
 
 interface IProps {
     posts: IPost[],
-    isPhoto:boolean
+    isPhoto: boolean,
+    classes?: string
 }
 
 const SmallCardsContainer:React.FC<IProps> = (props) => {
 
     return (
-        <article className="sm-cards-container">
+        <article className={"sm-cards-container " + props.classes}>
             
             <span className="sm-cards-container__title">{props.children}</span>
 

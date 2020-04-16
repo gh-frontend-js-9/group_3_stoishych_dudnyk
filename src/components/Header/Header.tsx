@@ -22,11 +22,11 @@ export const Header = () => {
             <div className="container">
                 <div className="header-wrapper">
                     <div className="header-wrapper header-left">
-                        <Logo colorClass='logo_white'/>
+                        <Logo colorClass='logo_black'/>
                         <Nav sideNav={false}/>
                     </div>
                     <HeaderButton isBlack={false}/>
-                    <BurgerMenu isWhite={true} onToggle={onBurgerMenuToggle}/>
+                    <BurgerMenu isWhite={false} onToggle={onBurgerMenuToggle}/>
                 </div>
             </div>
             <CSSTransition in={sideNavIsOpen} timeout={200} classNames="sidenav-wrapper" unmountOnExit>

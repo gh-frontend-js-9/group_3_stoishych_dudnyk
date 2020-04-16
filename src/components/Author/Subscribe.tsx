@@ -5,7 +5,8 @@ import Button from '../Button';
 import '../../assets/styles/scss/subscribe.scss';
 
 interface IProps {
-    size:string
+    size:string,
+    classes?: string
 }
 
 const Subscribe:React.FC<IProps> = (props) => {
@@ -21,7 +22,7 @@ const Subscribe:React.FC<IProps> = (props) => {
     }
 
     return (
-        <form onSubmit={submitHandler} className={"subscribe subscribe_size_" + props.size}>
+        <form onSubmit={submitHandler} className={"subscribe subscribe_size_" + props.size + " " + props.classes }>
             
             <input type="email" className={"subscribe__email subscribe__email_size_" + props.size}
                 placeholder="Your Email" onChange={inputHandler} value={input}/>

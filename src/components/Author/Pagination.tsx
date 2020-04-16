@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { /*useEffect*/ } from 'react';
 
 import '../../assets/styles/scss/pagination.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +14,7 @@ const Pagination:React.FC<IProps> = (props) => {
     let pageArray: number[] = [];
     
     for (let i=1; i <= props.pages; i++) pageArray.push(i);
-    
+
     const nextPage = () => {
         if (props.current !== props.pages)
             props.changeCurrentPage(props.current+1);
@@ -25,12 +25,17 @@ const Pagination:React.FC<IProps> = (props) => {
             props.changeCurrentPage(props.current-1);
     }
 
+    // useEffect(() => {
+    //     window.scrollTo(0, 0);
+    // });
+    
+
     return (
-        <ul className="pagination">
+        <ul className="pagination" >
+            
             <li onClick={prevPage} className="pagination__number">
                 <FontAwesomeIcon icon="chevron-left" />
             </li>
-
 
             {pageArray.map(el => {
                 
@@ -63,6 +68,7 @@ const Pagination:React.FC<IProps> = (props) => {
             <li onClick={nextPage} className="pagination__number">
                 <FontAwesomeIcon icon="chevron-right" />
             </li>
+
         </ul>
     )
 } 
