@@ -1,3 +1,5 @@
+
+@import '../colors';
 .sidenav {
   background-color: white;
   position: fixed;
@@ -25,7 +27,7 @@
 }
 
 .sidenav-items .nav-item__link:hover {
-  color: $secondary-color;
+  color: $white;
 }
 
 .sidenav-items .nav-item {

@@ -4,6 +4,10 @@ import {NavItem} from "./NavItem";
 export const Nav = (props:{sideNav:boolean}) => {
     const navigationItems = [
         {
+            text: "Home",
+            href: "/"
+        },
+        {
             text: "Popular",
             href: "#"
         },
@@ -22,7 +26,11 @@ export const Nav = (props:{sideNav:boolean}) => {
         {
             text: "Subscribe",
             href: "#"
-        }
+        },
+        {
+            text: "Author",
+            href: "/author"
+        },
     ];
 
     return (
