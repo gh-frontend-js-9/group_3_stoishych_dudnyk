@@ -11,7 +11,7 @@ const Footer = () => {
             <div className='footer__container'>
                 <Logo colorClass='logo_gray'/>
                 
-                <IconContainer />
+                <IconContainer themeNumber='1' size='sm' position='center'/>
 
                 <p className='footer__rights'>All Rights Reserved 2018 BehindMars</p>
             </div>

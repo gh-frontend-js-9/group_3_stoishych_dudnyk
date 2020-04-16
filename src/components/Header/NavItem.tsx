@@ -1,11 +1,13 @@
 import React from "react";
 
+import { Link } from 'react-router-dom';
+
 export const NavItem = (props:{text: string, link: string}) => {
     return (
         <li className="nav-item">
-            <a href={props.link} className="nav-item__link">
+            <Link to={props.link} className="nav-item__link">
                 {props.text}
-            </a>
+            </Link>
         </li>
     )
 };

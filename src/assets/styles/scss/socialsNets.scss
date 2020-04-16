@@ -3,27 +3,57 @@
 .social-nets-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    
+    &_center {
+        justify-content: center;
+    }
+
+    &_around {
+        justify-content: space-around;
+    }
 }
 
 
 .social-link {
     border-radius: 50%;
-    padding: 3px;
-    height: 20px;
-    width: 20px;
-    margin: 3px;
     display: flex;
     color: $white;
-    
-    &:hover {
-        transition: 0.2s;
-        background-color: $red;
-        color: $black;
+    transition: 0.3s;
+    box-sizing: border-box;
+
+    &_size {
+
+        &_sm {
+            font-size: 12px;
+            height: 20px;
+            width: 20px;
+            margin: 3px;            
+        }
+
+
+        &_md {
+            font-size: 20px;
+            height: 39px;
+            width: 37px;
+            margin: 5px; 
+        }
     }
 
-    &_theme_gray {
+    &_theme_1 {
         background-color: $gray;
+        
+        &:hover {
+            background-color: $red;
+            color: $black;    
+        }
+    }
+
+    &_theme_2 {
+        background-color: $red;
+        
+        &:hover {
+            background-color: $purpleBlue;   
+        }
     }
 
     &__icon {

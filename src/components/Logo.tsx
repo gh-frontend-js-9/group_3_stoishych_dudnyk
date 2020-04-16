@@ -6,7 +6,7 @@ import '../assets/styles/scss/logo.scss';
 export const Logo = (props:{colorClass:string}) => {
     return (
         <>
-            <a href="/" className={props.colorClass}>
+            <a href="/" className={"logo " + props.colorClass}>
                 <ImgLogo/>
             </a>
         </>

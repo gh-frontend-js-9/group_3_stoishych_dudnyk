@@ -1,0 +1,88 @@
+@import './colors';
+
+.subscribe {
+    display: flex;
+    margin: 10px 0; 
+    width: 100%;
+    justify-content: center;
+    
+    &_size_sm {
+        height: 40px;
+    }
+
+    &_size_lg {
+        height: 70px;
+    }
+
+    &__email {
+        box-sizing: border-box;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.14);
+        border-radius: 40px;
+        border: none;
+        padding: 10px;
+        height: 100%;
+        width: 50%;
+        transform: translate(15%);
+
+        &_size {
+            &_sm {
+                padding-right: 55px;
+                max-width: 220px;
+                padding-left: 15px;
+            }
+
+            &_lg {
+                padding-left: 30px;
+                padding-right: 90px;
+                max-width: 420px;
+            }
+        }
+
+
+        &:focus {
+            outline: none;
+            box-shadow:  0 0 8px rgba($color: $purpleBlue, $alpha: 1.0);
+        }
+    }
+
+    &__btn {
+        height: 100%;
+        transform: translate(-10%);
+        width: 30%;
+        
+        &_size {
+            &_sm {
+                max-width: 100px;
+            }
+
+            &_lg {
+                max-width: 170px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1180px) {
+           &__btn {
+               width: 30%;
+           }
+           &__email {
+               width: 60%;
+           }
+    }
+    
+    @media screen and (max-width: 1000px) {
+        & {
+            font-size: 14px;
+        }    
+    }
+    
+    @media screen and (max-width: 800px) {
+        & {
+            font-size: 14px;
+        }
+        &__email {
+            max-width: 300px;
+            width: 60%;
+        }
+    }
+}

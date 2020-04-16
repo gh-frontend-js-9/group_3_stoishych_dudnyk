@@ -1,0 +1,12 @@
+@import './colors';
+
+.advertisement {
+    width: 100%;
+    cursor: pointer;
+
+    &__img {
+        width: 100%;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+    }
+}

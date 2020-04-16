@@ -14,7 +14,9 @@ export interface IPost {
     category: string[],
     _id: string,
     title: string,
-    content: string,
     author: string,
-    featuredImage?: string
+    content?: string,
+    description?:string,
+    featuredImage?: string,
+    tags?:string[]
 }
