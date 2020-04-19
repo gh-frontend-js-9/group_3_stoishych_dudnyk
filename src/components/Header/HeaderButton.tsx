@@ -8,9 +8,9 @@ import {ReactComponent as SearchImg} from "../../assets/images/search.svg"
     height: "24px"
 };*/
 
-export const HeaderButton = (props:{isBlack:boolean}) => {
+export const HeaderButton = (props:{isWhite:boolean}) => {
     return (
-        <button className={props.isBlack ? "header-button header-button_white" :"header-button"}>
+        <button className={props.isWhite ? "header-button header-button_white" :"header-button"}>
             <SearchImg/>
         </button>
     )

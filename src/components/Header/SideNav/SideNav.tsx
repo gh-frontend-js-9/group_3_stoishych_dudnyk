@@ -9,7 +9,7 @@ export const SideNav = () => {
             <div className="sidenav">
                 <Logo colorClass='logo_black' />
                 <Nav sideNav={true}/>
-                <HeaderButton isBlack={true}/>
+                <HeaderButton isWhite={false}/>
             </div>
         </>
     )

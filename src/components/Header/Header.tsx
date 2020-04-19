@@ -1,13 +1,25 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Logo} from "../Logo";
 import {Nav} from "./Nav";
 import {HeaderButton} from "./HeaderButton";
 import {BurgerMenu} from "./BurgerMenu";
 import {CSSTransition} from "react-transition-group";
 import {SideNavWrapper} from "./SideNav/SideNavWrapper";
+import { useLocation,   } from 'react-router-dom'
 
-export const Header = () => {
+const Header: React.FC = () => {
     const [sideNavIsOpen, setSideNavIsOpen] = useState(false);
+    const [isWhite, setIsWhite] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname === "/") {
+            setIsWhite(true);
+        } else {
+            setIsWhite(false);
+        }
+    }, [location]);
+
 
     const onBurgerMenuToggle = () => {
         setSideNavIsOpen(!sideNavIsOpen);
@@ -22,11 +34,11 @@ export const Header = () => {
             <div className="container">
                 <div className="header-wrapper">
                     <div className="header-wrapper header-left">
-                        <Logo colorClass='logo_black'/>
-                        <Nav sideNav={false}/>
+                        <Logo colorClass={isWhite ? "logo_white" : "logo_black"}/>
+                        <Nav sideNav={false} isWhite={isWhite} />
                     </div>
-                    <HeaderButton isBlack={false}/>
-                    <BurgerMenu isWhite={false} onToggle={onBurgerMenuToggle}/>
+                    <HeaderButton isWhite={isWhite}/>
+                    <BurgerMenu isWhite={isWhite} onToggle={onBurgerMenuToggle}/>
                 </div>
             </div>
             <CSSTransition in={sideNavIsOpen} timeout={200} classNames="sidenav-wrapper" unmountOnExit>
@@ -35,3 +47,5 @@ export const Header = () => {
         </header>
     )
 };
+
+export default Header;

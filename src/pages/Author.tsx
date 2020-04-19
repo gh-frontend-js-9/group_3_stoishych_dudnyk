@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
- 
+
 import '../assets/styles/scss/pages/main.scss';
 import '../assets/styles/scss/pages/author.scss';
 import '../assets/styles/scss/calendar.scss'
@@ -11,7 +11,7 @@ import requestAPI from '../requestAPI';
 
 import { IPost } from '../interfaces/cardInterfaces';
 
-import {ReadingCardsContainer }from '../components/ReadingList/ReadingCardsContainer';
+import { ReadingCardsContainer }from '../components/ReadingList/ReadingCardsContainer';
 
 import Advertisement from '../components/Advertisement';
 import IconContainer from '../components/socialNets/IconContainer';
@@ -39,7 +39,7 @@ const Author:React.FC = () => {
 
     useEffect(() => {
         //because we do not have a category for recent posts and last posts without a catagory are the same as popular
-        //I decided to take essentials posts   
+        //I decided to take essentials posts
         requestAPI.getPostsList("?category=essentials&limit=4&fields=title,author,tags,featuredImage,_id")
         .then(resp => {
             setRecent(resp.data.docs);
@@ -69,19 +69,19 @@ const Author:React.FC = () => {
                 settings: {
                     slidesToShow: 1,
                 }
-            }  
+            }
         ]
     };
-    
+
     return (
         <main className="main main_bg_light-gray">
             <section className='author-page main__container'>
-                
+
                 <section className="section1">
 
                     <News classes="author-page__news" />
 
-                    <div className="author-page__subscribe author-page__subscribe_offset"> 
+                    <div className="author-page__subscribe author-page__subscribe_offset">
                         <p className="author-page__subscribe-title author-page__subscribe-title_size_lg">
                             Get free web design insights...
                         </p>
@@ -90,14 +90,14 @@ const Author:React.FC = () => {
                         </p>
                         <Subscribe size="lg" />
                     </div>
-                   
+
                 </section>
 
 
                 <section className="section2" ref={myRef}>
-                    
+
                     <Search classes="author-page__search" />
-                
+
                     <SmallCardsContainer posts={popular} isPhoto={true} classes="author-page__sm-cards-container">
                         Popular Posts
                     </SmallCardsContainer >
@@ -106,9 +106,9 @@ const Author:React.FC = () => {
                         Recent Posts
                     </SmallCardsContainer>
 
-                    <div className="author-page__subscribe author-page__subscribe_bottom-offset author-page__subscribe_bg_white"> 
+                    <div className="author-page__subscribe author-page__subscribe_bottom-offset author-page__subscribe_bg_white">
                         <span className="author-page__subscribe-title author-page__subscribe-title_size_sm">Subscribe</span>
-                        <Subscribe size="sm" classes="subscribe"/>   
+                        <Subscribe size="sm" classes="subscribe"/>
                     </div>
 
                     <article className="social-media author-page__social-media">
@@ -123,9 +123,9 @@ const Author:React.FC = () => {
                     <Advertisement classes="author-page__advertisement"/>
 
                     <TagContainer numberOfTags={10} classes="author-page__tag-container"/>
-                    
+
                 </section>
-                
+
 
             </section>
         </main>

@@ -31,13 +31,13 @@
         &:hover {
             transform: scale(1.3);
         }
-        
+
     }
 
     &:hover {
-        background-color: $red;
+        background-color: $pink;
         color: $white;
-        
+
         .tag__close-icon {
             color: $white;
         }

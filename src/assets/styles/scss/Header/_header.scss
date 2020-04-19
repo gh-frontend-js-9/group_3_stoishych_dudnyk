@@ -1,15 +1,13 @@
 @import '../colors';
 
 .header {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   padding: 60px 0;
   z-index: 1;
-  background-color: $lightGray;
-  opacity: 0.9;
+  background-color: transparent;
 
   @media screen and (max-width:600px){
     padding: 30px 0;
@@ -28,6 +26,10 @@
   justify-content: flex-start;
 }
 
+.logo-white {
+  color: white;
+}
+
 .nav {
   // max-width: 450px;
   width: 100%;
@@ -35,7 +37,6 @@
 }
 .nav-items {
   display: flex;
-  justify-content: space-between;
   padding: 0;
 }
 .nav-item {
@@ -50,11 +51,12 @@
   padding: 10px;
   border-radius: 10px;
   transition: 0.2s;
+  margin-right: 20px;
 }
 
 .nav-item__link:hover {
   color: $white;
-  background-color: $red;
+  background-color: $pink;
 }
 
 .header-button {
@@ -81,7 +83,7 @@
 }
 
 .header-button_white {
-  fill: black;
+  fill: white;
 }
 
 .header-button_white:hover {

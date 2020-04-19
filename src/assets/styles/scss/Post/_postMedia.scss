@@ -1,0 +1,71 @@
+@media screen and (max-width: 768px) {
+  .comment-header__name {
+    margin-right: 10px;
+  }
+  .comment-header__item {
+    display: block;
+  }
+  .comment-form {
+    padding: 70px 60px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .post-social {
+    display: none;
+  }
+  .post-reviews {
+    order: 0;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .post-main {
+    order: 1;
+  }
+  .post-wrapper {
+    flex-direction: column;
+
+  }
+  .post-wrapper {
+    padding: 0 30px;
+  }
+
+  .post-reviews__count {
+    margin: 0 30px 0 10px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .comment__avatar {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .comments-header__btn {
+    width: 130px;
+  }
+  .comment-content__text {
+    width: 100%;
+  }
+  .comment-header__date {
+    width: 80%;
+  }
+  .comment-form__submit {
+    width: 175px;
+    font-size: 18px
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .comments-header__btn {
+    width: 100px;
+  }
+  .comment-form {
+    padding: 70px 30px;
+  }
+}
