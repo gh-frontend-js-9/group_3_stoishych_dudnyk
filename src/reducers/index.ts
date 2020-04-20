@@ -8,5 +8,5 @@ export const rootReducer = combineReducers({
     popular: getPopularPostsReducer,
     essential: getEssentialPostsReducer,
     freelance: getFreelancePostsReducer,
-    currentPost: currentPostReducer
+    currentPost: currentPostReducer,
 });
