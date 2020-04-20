@@ -1,16 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const PostReviews: React.FC = () => {
+interface Props {
+    likes: number,
+    views: number
+}
+export const PostReviews: React.FC<Props> = ({likes, views}) => {
     return (
         <section className="post-reviews">
             <FontAwesomeIcon icon='heart' className='post-reviews__icon' size="lg"/>
             <h2 className="post-reviews__count">
-                12K
+                {likes}
             </h2>
             <FontAwesomeIcon icon='eye' className='post-reviews__icon' size="lg"/>
             <h2 className="post-reviews__count">
-                27K
+                {views}
             </h2>
         </section>
     )

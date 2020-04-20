@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Tag from './Tag';
 
-import requestAPI from '../../requestAPI';
+import requestAPI from '../../services/requestAPI';
 
 interface IProps {
     numberOfTags: number,
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const TagContainer:React.FC<IProps> = (props) => {
-    let [tags, setTags] = useState<string[]>([]); 
+    let [tags, setTags] = useState<string[]>([]);
     let [activeTag, setActiveTag] = useState<string>('');
 
     useEffect(() => {

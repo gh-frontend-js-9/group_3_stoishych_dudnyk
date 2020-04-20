@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface IComment {
-    id?: number,
+    id: string,
     name: string,
     created_at: string,
     text: string

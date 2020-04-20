@@ -38,22 +38,24 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
   .comment__avatar {
-    height: 50px;
-    width: 50px;
+    display: none;
   }
-}
-
-@media screen and (max-width: 375px) {
-  .comments-header__btn {
-    width: 130px;
+  .comment-content__text {
+    font-size: 16px;
   }
   .comment-content__text {
     width: 100%;
   }
   .comment-header__date {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .comments-header__btn {
+    width: 130px;
   }
   .comment-form__submit {
     width: 175px;

@@ -1,7 +1,6 @@
 .comments {
   max-width: 775px;
   margin: 0 auto;
-  margin-top: 200px;
 }
 
 .comments-header {
@@ -98,10 +97,15 @@
   border: 2px solid $pink;
 }
 
+.comment-content {
+  width: 100%;
+}
+
 .comment-content__text {
   width: 70%;
   color: $black;
   line-height: 32px;
+  margin: 0 !important;
 }
 
 .comment-form {

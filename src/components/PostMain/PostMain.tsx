@@ -1,16 +1,39 @@
 import React from 'react';
 import {AuthorInfo} from "../AuthorInfo";
 import {Comments} from "../Comments/Comments";
+import {Author} from "../../interfaces/author";
+import {useSelector} from "react-redux";
+import {DocsState} from "../../interfaces/docs";
+import PhotoCardsContainer from "../CardComponents/PhotoCardsContainer";
+import Spinner from "../Spinner";
 
-export const PostMain: React.FC = () => {
+interface Props {
+    image: string,
+    content: string,
+    author: Author
+}
+
+const getRandomNumber = () => {
+    return Math.floor(Math.random() * 4);
+};
+
+
+export const PostMain: React.FC<Props> = ({image,content, author}) => {
+    function createMarkup() {
+        return {__html: content};
+    }
+    const freelancePosts = useSelector((state: DocsState) => state.freelance.payload);
+    const essentialPosts = useSelector((state: DocsState) => state.essential.payload);
+
     return (
         <section className="post-main">
-            <div className="post-image" />
-            <p className="post-content">
+            {/*<div className="post-image" />*/}
+            <img src={image} className="post-image" alt="Post img"/>
+            {/*<p className="post-content">
                 People’s quest for creating websites has easily taken us to a new era of site development.
                 Where, with the availability of robust page building tools, creating websites has become a lot more fun (especially for non-developers).
                 The multitude of tools and plugins available to you is vast when you try building websites on WordPress.
-                Today we’ll explore a new one, <a href="#" className="post-content__link">WP Page Builder</a>. If you’re tired of the same old page builder plugins, this is one you should try out.
+                Today we’ll explore a new one, <a href="/" className="post-content__link">WP Page Builder</a>. If you’re tired of the same old page builder plugins, this is one you should try out.
             </p>
             <h2 className="post-content__subtitle">What’s Special About WP Page Builder?</h2>
             <p className="post-content mt-10">
@@ -51,10 +74,16 @@ export const PostMain: React.FC = () => {
                     “ WP Page Builder offers a lot of ready-to-use design
                     blocks to make your site development process a lot faster and easier “
                 </i>
-            </h3>
-            <AuthorInfo />
+            </h3>*/}
+            <div dangerouslySetInnerHTML={createMarkup()} />
+            <AuthorInfo
+                description={author.description}
+                firstName={author.firstName}
+                lastName={author.lastName}
+            />
             <h2 className="post-content__subtitle">You might also like...</h2>
-            <div className="post-image" />
+            {freelancePosts && essentialPosts ? <PhotoCardsContainer cards={[freelancePosts[getRandomNumber()],
+                essentialPosts[getRandomNumber()]]}/> : <Spinner size={3}/>}
             <Comments />
         </section>
     )

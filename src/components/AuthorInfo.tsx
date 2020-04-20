@@ -1,12 +1,17 @@
 import React from 'react';
 
-export const AuthorInfo: React.FC = () => {
+interface Props {
+    firstName: string,
+    lastName: string,
+    description: string
+}
+export const AuthorInfo: React.FC<Props> = ({firstName,lastName, description}) => {
     return (
         <div className="author-info">
             <div className="author-info__avatar" />
-            <h3 className="author-info__name">TOMAS LAURINAVICIUS</h3>
+            <h3 className="author-info__name">{`${firstName} ${lastName}`}</h3>
             <p className="author-info__subtitle">
-                Follow me <a href="https://twitter.com/">@JohnAMWill.</a>
+                {description}
             </p>
         </div>
     )

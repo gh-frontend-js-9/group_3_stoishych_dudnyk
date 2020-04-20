@@ -1,38 +1,47 @@
 import React from 'react';
 
-import { IPost } from '../../interfaces/cardInterfaces';
+import {Post} from "../../interfaces/docs";
+import {Link} from "react-router-dom";
+import {getCurrentPostRequested, setCurrentPost} from "../../actions/currentPost";
+import {useDispatch} from "react-redux";
 
 interface IProps {
-    post: IPost
-    isText: boolean 
-} 
+    post: Post
+    isText: boolean
+}
 
-const PhotoCard = (props: IProps) => {
-        
+
+const PhotoCard: React.FC<IProps> = ({post, isText}) => {
+    const openNewPost = () => {
+        dispatch(setCurrentPost(post._id));
+    };
+    const dispatch = useDispatch();
     return (
-        <div className='photo-card'>
-            <div className='photo-card__photo'>
-                <img src={props.post.featuredImage || 'https://picsum.photos/700'} className='photo-card__photo' alt={props.post.title}/>
-            </div>
-            
-            <p className='photo-card__description'> 
-                By&nbsp;
-                <span className='photo-card__author'>{props.post.author}</span>
-                &nbsp;in&nbsp;
-                <span className='photo-card__type'>{props.post.category}</span> 
-            </p>
+        <Link to="/post" className="photo-card__link">
+            <div className='photo-card' onClick={openNewPost}>
 
-            <h3 className='photo-card__title'>{props.post.title}</h3>
-            
-            {
-                props.isText ? 
+                <div className='photo-card__photo'>
+                    <img src={post.featuredImage || 'https://picsum.photos/700'} className='photo-card__photo'
+                         alt={post.title}/>
+                </div>
+
+                <p className='photo-card__description'>
+                    By&nbsp;
+                    <span className='photo-card__author'>{`${post.author.firstName} ${post.author.lastName}`}</span>
+                    &nbsp;in&nbsp;
+                    <span className='photo-card__type'>{post.category}</span>
+                </p>
+
+                <h3 className='photo-card__title'>{post.title}</h3>
+
+                {isText ?
                     <p className='photo-card__text'>
-                        {props.post.description}
+                        {post.description}
                     </p>
-                : null
-            }
+                    : null}
 
-        </div>
+            </div>
+        </Link>
     )
 }
 

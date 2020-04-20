@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import '../assets/styles/scss/pages/main.scss';
 import '../assets/styles/scss/pages/author.scss';
@@ -7,11 +7,7 @@ import '../assets/styles/scss/calendar.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import requestAPI from '../requestAPI';
-
-import { IPost } from '../interfaces/cardInterfaces';
-
-import { ReadingCardsContainer }from '../components/ReadingList/ReadingCardsContainer';
+import { ReadingCardsContainer } from '../components/ReadingList/ReadingCardsContainer';
 
 import Advertisement from '../components/Advertisement';
 import IconContainer from '../components/socialNets/IconContainer';
@@ -21,16 +17,21 @@ import Search from '../components/Search';
 import News from '../components/Author/News';
 import Calendar, { OnChangeDateCallback } from 'react-calendar';
 import TagContainer from '../components/Tag/TagContainer';
+import { DocsState } from "../interfaces/docs";
+import { useSelector } from "react-redux";
 
 const Author:React.FC = () => {
 
     let [date, setDate] = useState<Date>(new Date());
-    let [popular, setPopular] = useState<IPost[]>([]);
-    let [recent, setRecent] = useState<IPost[]>([]);
+    /*let [popular, setPopular] = useState<Post[]>([]);
+    let [recent, setRecent] = useState<Post[]>([]);*/
+
+    const popular = useSelector((state:DocsState) => state.popular.payload);
+    const recent = useSelector((state:DocsState) => state.essential.payload);
 
     let myRef = React.createRef<HTMLElement>();
 
-    useEffect(() => {
+    /*useEffect(() => {
         requestAPI.getPostsList("?category=popular&page=1&limit=3&fields=title,author,tags,featuredImage,_id")
         .then(resp => {
             setPopular(resp.data.docs);
@@ -44,7 +45,7 @@ const Author:React.FC = () => {
         .then(resp => {
             setRecent(resp.data.docs);
         })
-    }, [])
+    }, [])*/
 
     const sliderSettings = {
         dots: false,

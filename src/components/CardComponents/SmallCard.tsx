@@ -1,20 +1,19 @@
 import React from 'react';
-import { IPost } from '../../interfaces/cardInterfaces';
-
 import '../../assets/styles/scss/Cards/smallCard.scss';
+import {Post} from "../../interfaces/docs";
 
 interface IProps {
-    post: IPost,
+    post: Post,
     isPhoto:boolean
-}  
+}
 
 const SmallCard:React.FC<IProps> = (props) => {
-  
+
     return (
         <div className={"sm-card " +(props.isPhoto ? "sm-card_col_2" : "") }  >
-            { props.isPhoto 
+            { props.isPhoto
                 ? <img src={props.post.featuredImage || 'https://picsum.photos/80'} alt={props.post.title} className="sm-card__image"/>
-                : null 
+                : null
             }
             <div>
                 <p className="sm-card__tags">{props.post.tags![0] || 'Other stuff'}</p>
@@ -22,6 +21,6 @@ const SmallCard:React.FC<IProps> = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default SmallCard;
