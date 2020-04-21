@@ -17,22 +17,22 @@ import {
     faEllipsisH,
     faTimes,
     faHeart,
-    faEye
+    faEye,
+    faArrowUp
 } from '@fortawesome/free-solid-svg-icons';
 import {Post} from "./pages/Post";
 import {getPopularPostsRequested} from "./actions/getPopularPosts";
 import {getEssentialPostsRequested} from "./actions/getEssentialPosts";
 import {getFreelancePostsRequested} from "./actions/getFreelancePosts";
+import {ScrollToTop} from "./components/ScrollToTop";
 
 library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF,
     faSyncAlt, faChevronLeft, faChevronRight, faEllipsisH,
-    faTimes, faHeart, faEye);
+    faTimes, faHeart, faEye, faArrowUp);
 
 
 function App() {
     const dispatch = useDispatch();
-    // It can be 1 state with all posts, but unfortunately I didn't find a route to get all posts in normal way
-    // at first time, so let it be as 3 reducers
     useEffect(() => {
         dispatch(getPopularPostsRequested());
         dispatch(getEssentialPostsRequested());
@@ -48,6 +48,7 @@ function App() {
                 <Route path="/post" component={Post}/>
             </Switch>
             <Footer/>
+            <ScrollToTop />
         </Router>
     );
 }
