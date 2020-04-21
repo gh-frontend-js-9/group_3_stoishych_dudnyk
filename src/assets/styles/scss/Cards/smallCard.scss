@@ -5,7 +5,7 @@
     display: grid;
     grid-auto-rows: max-content;
     cursor: pointer;
-
+    text-decoration: none;
 
     &_col_2 {
         grid-template-columns: 80px auto;

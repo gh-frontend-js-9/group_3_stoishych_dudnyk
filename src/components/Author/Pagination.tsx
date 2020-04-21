@@ -1,7 +1,8 @@
-import React, { /*useEffect*/ } from 'react';
+import React, { useEffect } from 'react';
 
 import '../../assets/styles/scss/pagination.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createUltimatePagination, PaginationComponentProps, ItemTypeToComponent, UltimatePaginationProps } from 'react-ultimate-pagination';
 
 interface IProps {
     pages: number,
@@ -11,65 +12,86 @@ interface IProps {
 
 
 const Pagination:React.FC<IProps> = (props) => {
-    let pageArray: number[] = [];
     
-    for (let i=1; i <= props.pages; i++) pageArray.push(i);
+    let { current, pages } = props;
 
-    const nextPage = () => {
-        if (props.current !== props.pages)
-            props.changeCurrentPage(props.current+1);
+    // let pageArray: number[] = [];
+    // for (let i=1; i <= pages; i++) pageArray.push(i);
+
+    // const nextPage = () => {
+    //     if (current !== pages)
+    //         props.changeCurrentPage(current+1);
+    // }
+
+    // const prevPage = () => {
+    //     if (current !== 1)
+    //         props.changeCurrentPage(current-1);
+    // }
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [props.current]);
+
+    const Page =(props:PaginationComponentProps):JSX.Element => (
+        <li onClick={props.onClick}
+            className={"pagination__number " + (props.isActive ? "pagination__number_active" : "")}>
+        
+            {props.value}
+        </li> 
+    );
+
+    const Ellipsis = (props:PaginationComponentProps):JSX.Element => (
+        <li className="pagination__dots" onClick={props.onClick}>
+            <FontAwesomeIcon icon='ellipsis-h'/>
+        </li>
+    );
+      
+    const PreviousPageLink = (props:PaginationComponentProps):JSX.Element => (
+        <li onClick={props.onClick} className="pagination__number">
+            <FontAwesomeIcon icon="chevron-left" />
+        </li>
+    )
+    
+    const NextPageLink = (props:PaginationComponentProps):JSX.Element => (
+        <li onClick={props.onClick} className="pagination__number">
+            <FontAwesomeIcon icon="chevron-right" />
+        </li>
+
+    )
+    
+    const LastPageLink = (props:PaginationComponentProps):JSX.Element => {
+        return <></>
+    }
+    
+    const FirstPageLink= (props:PaginationComponentProps):JSX.Element => {
+        return <></>
+    }
+    
+    const Wrapper = (props: {children:React.ReactNode}):JSX.Element => {
+        return <ul className="pagination">{props.children}</ul>
     }
 
-    const prevPage = () => {
-        if (props.current !== 1)
-            props.changeCurrentPage(props.current-1);
-    }
-
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // });
+    const itemTypeToComponent:ItemTypeToComponent = {
+        'PAGE': Page,
+        'ELLIPSIS': Ellipsis,
+        'FIRST_PAGE_LINK': FirstPageLink,
+        'PREVIOUS_PAGE_LINK': PreviousPageLink,
+        'NEXT_PAGE_LINK': NextPageLink,
+        'LAST_PAGE_LINK': LastPageLink
+    };
     
+    const UltimatePagination:React.ComponentType<UltimatePaginationProps>  =  createUltimatePagination({itemTypeToComponent, WrapperComponent:Wrapper} );
 
     return (
-        <ul className="pagination" >
-            
-            <li onClick={prevPage} className="pagination__number">
-                <FontAwesomeIcon icon="chevron-left" />
-            </li>
-
-            {pageArray.map(el => {
-                
-                // select only the current, previous, next, first and last pages
-                if (el === props.current ||  el === (props.current-1) || el === (props.current+1) ||
-                    el === 1 || el === props.pages) {
-                    return (
-                        <li onClick={() => props.changeCurrentPage(el)} key={el}
-                            className={"pagination__number " + (props.current === el ? "pagination__number_active" : "")}>
-                            {el}
-                        </li>
-                    )
-                // insert ...  if too many pages in range from 1 to current-1
-                } else if (el === (props.current - 2) && el !== 1) {
-                    return (
-                        <li className="pagination__dots" key={el} onClick={() => props.changeCurrentPage(props.current-2)}>
-                            <FontAwesomeIcon icon='ellipsis-h'/>
-                        </li>
-                    )
-                // insert ...  if too many pages in range from current+1 to last
-                } else if ( el === (props.current + 2) && el !== props.pages)  {
-                    return (
-                        <li className="pagination__dots" key={el} onClick={() => props.changeCurrentPage(props.current+2)}>
-                            <FontAwesomeIcon icon='ellipsis-h'/>
-                        </li>   
-                    )
-                } else return ""
-            })}
-
-            <li onClick={nextPage} className="pagination__number">
-                <FontAwesomeIcon icon="chevron-right" />
-            </li>
-
-        </ul>
+        <UltimatePagination
+            currentPage={current}
+            totalPages={pages}
+            onChange={props.changeCurrentPage}
+            boundaryPagesRange={1}
+            siblingPagesRange={0}
+            hideFirstAndLastPageLinks={false}
+        />
     )
 } 
 

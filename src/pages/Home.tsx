@@ -24,43 +24,6 @@ export const Home = () => {
     const essential = useSelector((state: DocsState) => state.essential);
     const freelance = useSelector((state: DocsState) => state.freelance);
 
-    /*let [popular, setPopular] = useState<IPostsBlock | any>({});
-    let [essential, setEssential] = useState<IPostsBlock | any>({});
-    let [freelance, setFreelance] = useState<IPostsBlock | any>({});*/
-
-    /*useEffect(() => {
-        requestApi.getPostsList('?category=popular&page=1&limit=5&fields=title,category,author,featuredImage,description')
-            .then((resp) => {
-                resp.data.docs = resp.data.docs.map((el: IPost, index: number) => ({...el, author: 'man' + index}));
-                setPopular({
-                    ...resp.data,
-                    title: "Popular"
-                });
-            });
-    }, []);
-
-    useEffect(() => {
-        requestApi.getPostsList('?category=essential&page=1&limit=5&fields=title,category,author,description')
-            .then((resp) => {
-                resp.data.docs = resp.data.docs.map((el: IPost, index: number) => ({...el, author: 'man' + index}))
-                setEssential({
-                    ...resp.data,
-                    title: "Essential"
-                });
-            });
-    }, []);
-
-    useEffect(() => {
-        requestApi.getPostsList('?category=freelance&page=1&limit=5&fields=title,category,author,description')
-            .then((resp) => {
-                resp.data.docs = resp.data.docs.map((el: IPost, index: number) => ({...el, author: 'man' + index}))
-
-                setFreelance({
-                    ...resp.data,
-                    title: "Freelance"
-                });
-            });
-    }, []);*/
 
     const sliderSettings = {
         dots: true,

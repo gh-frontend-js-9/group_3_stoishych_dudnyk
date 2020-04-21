@@ -16,7 +16,7 @@ export const Post: React.FC = () => {
 
     if (currentPost.id) {
         currentIdUrl = currentPost.id;
-        localStorage.setItem('currentPost', currentPost.id)
+        localStorage.setItem('currentPost', JSON.stringify(currentPost.id));
     }
 
     useEffect(() => {

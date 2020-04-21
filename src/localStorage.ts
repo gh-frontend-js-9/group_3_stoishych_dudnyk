@@ -1,7 +1,7 @@
-export const loadState = () => {
-    const serializedState = localStorage.getItem('currentPost');
+export const loadState = (item:string) => {
+    const serializedState = localStorage.getItem(item);
     if (serializedState === null) {
         return undefined;
     }
-    return serializedState;
+    return JSON.parse(serializedState);
 };

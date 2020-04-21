@@ -17,7 +17,8 @@
     &__email {
         box-sizing: border-box;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.14);
-        border-radius: 40px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
         border: none;
         padding: 10px;
         height: 100%;
@@ -33,7 +34,7 @@
 
             &_lg {
                 padding-left: 30px;
-                padding-right: 90px;
+                padding-right: 15%;
                 max-width: 420px;
             }
         }

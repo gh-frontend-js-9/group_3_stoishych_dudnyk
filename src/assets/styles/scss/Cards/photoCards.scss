@@ -56,13 +56,24 @@
 
     }
 
+    &__author {
+        text-decoration: none;
+        transition: 0.3s;
+
+        // there should be "important" to beat styles on post page
+        &:hover {
+            color:$pink !important;
+        }
+    }
+
     &__description,
     &__text {
         color: $gray;
     }
 
+    // there should be "important" to beat styles on post page
     &__type,
     &__author {
-        color: $black;
+        color: $black !important;
     }
 }

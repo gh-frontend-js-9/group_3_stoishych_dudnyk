@@ -1,5 +1,6 @@
 import {Author} from "./author";
 import {CurrentPostState} from "../reducers/currentPost";
+import { CurrentAuthorState } from "../reducers/currentAuthor";
 
 export interface Post {
     _id: string,
@@ -29,5 +30,6 @@ export interface DocsState {
     essential: CategoryState;
     freelance: CategoryState;
     currentPost: CurrentPostState;
+    currentAuthor: CurrentAuthorState;
 }
 

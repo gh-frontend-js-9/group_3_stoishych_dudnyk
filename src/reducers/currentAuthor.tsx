@@ -1,45 +1,44 @@
 import { Reducer } from "redux";
-import { CurrentPostActions, CurrentPostActionsType } from "../actions/currentPost";
+import { CurrentAuthorActions, CurrentAuthorActionsType } from "../actions/currentAuthor";
 import { StateStatus } from "../interfaces/State";
-import {PostResponse} from "../interfaces/post";
+import {Author} from "../interfaces/author";
 import {loadState} from "../localStorage";
 
-const currentId = loadState('currentPost');
+const currentAuthor = loadState('currentAuthor');
 
 const initialState = {
     status: StateStatus.INIT,
-    id: currentId || ''
+    payload: currentAuthor
 };
 
-export interface CurrentPostState {
+export interface CurrentAuthorState {
     status?: string,
-    id?: string,
-    payload?: PostResponse
+    payload?: Author
 }
 
-export const currentPostReducer: Reducer<any, CurrentPostActionsType> =
+export const currentAuthorReducer: Reducer<any, CurrentAuthorActionsType> =
     (state= initialState, action) => {
     switch (action.type) {
-        case CurrentPostActions.SET_CURRENT_POST: {
+        case CurrentAuthorActions.SET_CURRENT_AUTHOR: {
             return {
                 ...state,
-                id: action.payload
+                payload: action.payload
             }
         }
-        case CurrentPostActions.GET_CURRENT_POST_REQUESTED: {
+        case CurrentAuthorActions.GET_CURRENT_AUTHOR_REQUESTED: {
             return {
                 ...state,
                 status: StateStatus.LOADING
             }
         }
-        case CurrentPostActions.GET_CURRENT_POST_SUCCEEDED: {
+        case CurrentAuthorActions.GET_CURRENT_AUTHOR_SUCCEEDED: {
             return {
                 ...state,
                 status: StateStatus.LOADED,
                 payload: action.payload,
             }
         }
-        case CurrentPostActions.GET_CURRENT_POST_FAILED: {
+        case CurrentAuthorActions.GET_CURRENT_AUTHOR_FAILED: {
             return {
                 ...state,
                 status: StateStatus.FAILED,

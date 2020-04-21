@@ -1,6 +1,9 @@
 import React from 'react';
 import '../../assets/styles/scss/Cards/smallCard.scss';
 import {Post} from "../../interfaces/docs";
+import {Link} from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import { setCurrentPost } from "../../actions/currentPost";
 
 interface IProps {
     post: Post,
@@ -8,18 +11,23 @@ interface IProps {
 }
 
 const SmallCard:React.FC<IProps> = (props) => {
+    const dispatch = useDispatch();
 
     return (
-        <div className={"sm-card " +(props.isPhoto ? "sm-card_col_2" : "") }  >
-            { props.isPhoto
-                ? <img src={props.post.featuredImage || 'https://picsum.photos/80'} alt={props.post.title} className="sm-card__image"/>
-                : null
-            }
-            <div>
-                <p className="sm-card__tags">{props.post.tags![0] || 'Other stuff'}</p>
-                <p className="sm-card__title">{props.post.title}</p>
-            </div>
-        </div>
+        <Link to="/post" className={"sm-card " +(props.isPhoto ? "sm-card_col_2" : "") } 
+        onClick={() => dispatch(setCurrentPost(props.post._id))}>
+            {/* <div className={"sm-card " +(props.isPhoto ? "sm-card_col_2" : "") } 
+                onClick={() => dispatch(setCurrentPost(props.post._id))}> */}
+                { props.isPhoto
+                    ? <img src={props.post.featuredImage || 'https://picsum.photos/80'} alt={props.post.title} className="sm-card__image"/>
+                    : null
+                }
+                <div>
+                    <p className="sm-card__tags">{props.post.tags![0] || 'Other stuff'}</p>
+                    <p className="sm-card__title">{props.post.title}</p>
+                </div>
+            {/* </div> */}
+        </Link>
     )
 };
 
