@@ -4,6 +4,7 @@ import SmallCard from './SmallCard';
 
 import '../../assets/styles/scss/Cards/smallCardsContainer.scss';
 import {Post} from "../../interfaces/docs";
+import Spinner from '../Spinner';
 
 interface IProps {
     posts: Post[],
@@ -21,7 +22,7 @@ const SmallCardsContainer:React.FC<IProps> = (props) => {
             <div className="sm-cards-container__card-list">
                 {props.posts !== undefined
                     ? props.posts.map( (el) => <SmallCard post={el} isPhoto={props.isPhoto} key={el._id}/>)
-                    : null
+                    : <Spinner size={2}/>
                 }
             </div>
         </article>

@@ -25,10 +25,12 @@
     cursor: pointer;
     display: grid;
     gap: 20px;
-    word-break: break-word;
+    align-content: baseline;
 
     &__photo {
         width: 100%;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
     }
 
     &__description {
@@ -56,13 +58,14 @@
 
     }
 
-    &__author {
+    &__link {
         text-decoration: none;
+    }
+    
+    &__author {
         transition: 0.3s;
-
-        // there should be "important" to beat styles on post page
         &:hover {
-            color:$pink !important;
+            color:$pink;
         }
     }
 
@@ -71,9 +74,9 @@
         color: $gray;
     }
 
-    // there should be "important" to beat styles on post page
+    
     &__type,
     &__author {
-        color: $black !important;
+        color: $black;
     }
 }

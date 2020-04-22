@@ -1,41 +1,40 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, RefObject} from 'react';
 
 import IconContainer from '../socialNets/IconContainer';
 import { Author } from '../../interfaces/author';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {DocsState} from "../../interfaces/docs";
 import Spinner from '../Spinner';
 
 interface IProps {
-    author: Author,
     classes?: string
 }
 
 const AuthorBlock:React.FC<IProps> = (props) => {
-    const dispatch = useDispatch();
-    const currentAuthor = useSelector((state: DocsState) => state.currentAuthor);
 
     const author =  useSelector((state: DocsState) => state.currentAuthor);
-    
+    let img= useRef<HTMLImageElement>(null);
     if (author.payload) {
         localStorage.setItem('currentAuthor', JSON.stringify(author.payload));    
     }
 
-    let {classes} = props;
-
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [currentAuthor.payload]);
+    }, [author.payload]);
 
-    let link = author.payload!.imgUrl || `https://loremflickr.com/320/240/man,woman?${new Date()}`
     
+    useEffect(() => {
+        if (img.current !== undefined && img.current !== null) { 
+            img.current!.src = author.payload?.imgUrl || `https://loremflickr.com/320/240/man,woman?${new Date()}`
+        }
+    }, [author.payload]);
     
     return (
         author.payload !== undefined 
         ?
-            <div className={"author-info " + classes}>
+            <div className={"author-info " + props.classes}>
             
-                <img src={link} 
+                <img src={""} ref={img}
                     alt="author" className="author-info__avatar"/>
                 
                 <span className="author-info__name">
@@ -43,10 +42,10 @@ const AuthorBlock:React.FC<IProps> = (props) => {
                 </span>
 
                 <p className="author-info__description">{author.payload.description}</p>
-                <IconContainer themeNumber="1" position="center" size="sm"/>
+                <IconContainer themeNumber="1" classes="author-info__icon-container" size="sm"/>
             
             </div>
-        : <Spinner size={3}/>
+        : null//<Spinner size={3}/>
     )
 }
 

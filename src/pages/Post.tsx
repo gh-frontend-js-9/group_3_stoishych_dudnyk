@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {PostHero} from "../components/PostHero/PostHero";
-import {IconColumnContainer} from "../components/socialNetsInColumn/IconColumnContainer";
+import IconContainer from "../components/socialNets/IconContainer";
 import {PostReviews} from "../components/PostMain/PostReviews/PostReviews";
 import {PostMain} from "../components/PostMain/PostMain";
 import {useDispatch, useSelector} from "react-redux";
@@ -40,7 +40,7 @@ export const Post: React.FC = () => {
                     <main className="post">
                         <div className="container">
                             <div className="post-wrapper">
-                                <IconColumnContainer themeNumber='1' size='md' position='center'/>
+                                <IconContainer themeNumber='1' size='md' classes='post__icon-contaner'/>
                                 <PostMain
                                     image={currentPost.payload.featuredImage}
                                     content={currentPost.payload.content}

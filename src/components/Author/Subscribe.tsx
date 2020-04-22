@@ -23,13 +23,14 @@ const Subscribe:React.FC<IProps> = (props) => {
 
     return (
         <form onSubmit={submitHandler} className={"subscribe subscribe_size_" + props.size + " " + props.classes }>
-            
-            <input type="email" className={"subscribe__email subscribe__email_size_" + props.size}
-                placeholder="Your Email" onChange={inputHandler} value={input}/>
-           
-            <Button classes={"btn_bg_pink subscribe__btn subscribe__btn_size_" + props.size}>
-                Subscribe
-            </Button>
+            <div className={"subscribe__container subscribe__container_size_" + props.size}>
+                <input type="email" className={"subscribe__email subscribe__email_size_" + props.size}
+                    placeholder="Your Email" onChange={inputHandler} value={input}/>
+                
+                <Button classes={"btn_bg_pink subscribe__btn subscribe__btn_size_" + props.size}>
+                    Subscribe
+                </Button>
+            </div>
         
         </form>
     )

@@ -24,6 +24,11 @@
   margin-bottom: 30px;
 }
 
+.author-info__icon-container {
+  display: flex;
+  justify-content: center;
+}
+
 .author-info__subtitle {
   a {
     color: #27aeff;

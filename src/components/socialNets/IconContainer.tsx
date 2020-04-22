@@ -7,16 +7,16 @@ import SocialNetIcon from './SocialNetIcon';
 export interface IconProps {
     themeNumber:string,
     size:string,
-    position:string
+    classes:string
 }
 
 const IconContainer:React.FC<IconProps> = (props) => {
 
     // let links:any = [];
-    let {position, ...other} = props
+    let {classes, ...other} = props
 
     return (
-        <div className={'social-nets-container social-nets-container_' + position}>
+        <div className={'social-nets-container ' + classes}>
             <SocialNetIcon name={['fab','vk']} link='http://vk.com/' {...other}/>
 
             <SocialNetIcon name={['fab','pinterest-p']} link='https://www.pinterest.com/' {...other}/>

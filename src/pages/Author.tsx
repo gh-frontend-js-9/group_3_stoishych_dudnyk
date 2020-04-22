@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import '../assets/styles/scss/pages/main.scss';
 import '../assets/styles/scss/pages/author.scss';
@@ -18,14 +18,13 @@ import Search from '../components/Search';
 import News from '../components/Author/News';
 import Calendar, { OnChangeDateCallback } from 'react-calendar';
 import TagContainer from '../components/Tag/TagContainer';
-import { DocsState, Docs, Post } from "../interfaces/docs";
+import { DocsState, Post } from "../interfaces/docs";
 import { useSelector } from "react-redux";
 import Spinner from '../components/Spinner';
 
 const Author:React.FC = () => {
 
     let [date, setDate] = useState<Date>(new Date());
-    
 
     const popular = useSelector((state:DocsState) => {
         let array:Post[] = state.popular.payload;
@@ -75,14 +74,14 @@ const Author:React.FC = () => {
                     { !!popular
                     ? (<>
                         
-                        <AuthorBlock author={popular[0].author} classes="section1__author-info"/>
-                        <News classes="author-page__news" />
+                        <AuthorBlock classes="section1__author-info"/>
+                        <News classes="section1__news" />
 
-                        <div className="author-page__subscribe author-page__subscribe_offset">
-                            <p className="author-page__subscribe-title author-page__subscribe-title_size_lg">
+                        <div className="section1__subscribe section1__subscribe_offset">
+                            <p className="section1__subscribe-title">
                                 Get free web design insights...
                             </p>
-                            <p className="author-page__subscribe-description">
+                            <p className="section1__subscribe-description">
                                 In your inbox, every other week. And unsubscribe in a click, if you want.
                             </p>
                             <Subscribe size="lg" />
@@ -98,33 +97,33 @@ const Author:React.FC = () => {
 
                 <section className="section2">
 
-                    <Search classes="author-page__search" />
+                    <Search classes="section2__search" />
 
-                    <SmallCardsContainer posts={popular} isPhoto={true} classes="author-page__sm-cards-container">
+                    <SmallCardsContainer posts={popular} isPhoto={true} classes="section2__sm-cards-container">
                         Popular Posts
                     </SmallCardsContainer >
 
-                    <SmallCardsContainer posts={recent} isPhoto={false} classes="author-page__sm-cards-container">
+                    <SmallCardsContainer posts={recent} isPhoto={false} classes="section2__sm-cards-container">
                         Recent Posts
                     </SmallCardsContainer>
 
-                    <div className="author-page__subscribe author-page__subscribe_bottom-offset author-page__subscribe_bg_white">
-                        <span className="author-page__subscribe-title author-page__subscribe-title_size_sm">Subscribe</span>
+                    <div className="section2__subscribe section2__subscribe_offset section2__subscribe_bg_white">
+                        <span className="section2__subscribe-title">Subscribe</span>
                         <Subscribe size="sm" classes="subscribe"/>
                     </div>
 
-                    <article className="social-media author-page__social-media">
+                    <article className="social-media section2__social-media">
                         <span className="social-media__title">Social Media</span>
-                        <IconContainer themeNumber='2' size='md' position='around' />
+                        <IconContainer themeNumber='2' size='md' classes="social-media__icon-container" />
                     </article>
 
-                    <ReadingCardsContainer settings={sliderSettings} classes="author-page__reading-list-container"/>
+                    <ReadingCardsContainer settings={sliderSettings} classes="section2__reading-list-container"/>
 
                     <Calendar value={date} onChange={setDate as OnChangeDateCallback}/>
 
-                    <Advertisement classes="author-page__advertisement"/>
+                    <Advertisement classes="section2__advertisement"/>
 
-                    <TagContainer numberOfTags={10} classes="author-page__tag-container"/>
+                    <TagContainer numberOfTags={10} classes="section2__tag-container"/>
 
                 </section>
 

@@ -20,6 +20,48 @@ $offset: 20px;
     @media screen and (max-width:600px) {
         padding-top: 100px;
     }
+}
+
+.section1 {
+    max-width: 774px;
+    width: 774px;
+    padding-right: 20px;
+    
+    @media screen and (max-width: 1190px){
+        width: 64%;
+    }
+
+    @media screen and (max-width: 1000px){
+        width: 60%;
+    }
+
+    @media screen and (max-width: 800px) {
+        order: 2;
+        width: 100%;        
+    }
+
+    &__author-info {
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
+    }
+
+    &__news .photo-card {
+        margin-bottom: 80px;
+
+        &:last-child {
+            margin-bottom: 150px;
+        }
+    }
+
+    &__error {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 40px 0;
+        font-weight: 600;
+    }
 
     &__subscribe {
         width: 100%;
@@ -50,14 +92,7 @@ $offset: 20px;
             text-align: center;
             padding: 5px 0;
             margin: 10px 0 40px;
-
-            &_size_sm {
-                font-size: 1.1em;
-            }
-
-            &_size_lg {
-                font-size: 2.75em;
-            }
+            font-size: 2.75em;    
         }
         
         &-description {
@@ -68,58 +103,6 @@ $offset: 20px;
         }
     }
 
-    &__tag-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 30px;
-    }
-
-    & .react-calendar {
-        margin-top: $offset;
-    }
-    
-    &__search,
-    &__social-media,
-    &__sm-cards-container,
-    &__reading-list-container,
-    & .react-calendar,
-    &__advertisement {
-        margin-bottom: $offset;
-    }
-
-    &__news .photo-card {
-        margin-bottom: 80px;
-
-        &:last-child {
-            margin-bottom: 150px;
-        }
-    }
-}
-
-.section1 {
-    max-width: 774px;
-    width: 774px;
-    padding-right: 20px;
-    
-    @media screen and (max-width: 1190px){
-        width: 64%;
-    }
-
-    @media screen and (max-width: 1000px){
-        width: 60%;
-    }
-
-    @media screen and (max-width: 800px) {
-        order: 2;
-        width: 100%;        
-    }
-
-    &__author-info {
-        padding: 40px;
-        border-radius: 8px;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
-    }
 }
 
 .section2 {
@@ -140,6 +123,91 @@ $offset: 20px;
     @media screen and (max-width: 800px){
         max-width: 100%;
         width: 100%;        
+    }
+
+    &__subscribe {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0px 50px;
+        
+        &_offset {
+            margin-bottom: $offset;
+        }
+
+        &_bg_white {
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            background-color: $white;
+        }
+
+        &-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 29px 0 40px 0;
+            letter-spacing: -0.3px;
+            text-align: center;
+            padding: 5px 0;
+            margin: 10px 0 40px;
+            font-size: 1.1em;
+        }
+        
+        &-description {
+            font-size: 1.1em;
+            letter-spacing: -0.11px;
+            margin-bottom: 55px;
+            text-align: center ;
+        }
+    }
+
+    & .react-calendar {
+        margin-top: $offset;
+    }
+
+    &__tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    & .reading-list-container {
+        @media screen and (max-width: 1160px){
+            padding: 0;
+        }
+    }
+
+    & .slick-active .reading-card{
+        display: grid;
+        padding-left: 20%;
+    
+    
+        @media screen and (max-width: 1180px) {
+            padding-left: 15%;
+        }
+        @media screen and (max-width: 1100px) {
+            padding-left: 20%;
+        }
+        @media screen and (max-width: 950px) {
+            padding-left: 15%;
+        }
+        @media screen and (max-width: 800px) {
+            padding-left: 0;
+        }
+    }
+
+    & .reading-card__next {
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+    
+    &__search,
+    &__social-media,
+    &__sm-cards-container,
+    &__reading-list-container,
+    & .react-calendar,
+    &__advertisement {
+        margin-bottom: $offset;
     }
 }
 
@@ -163,34 +231,9 @@ $offset: 20px;
         text-align: center;
     }
 
-}
-
-.section2 .reading-list-container {
-    @media screen and (max-width: 1160px){
-        padding: 0;
+    &__icon-container {
+        display: flex;
+        justify-content: space-around;
     }
-}
 
-
-.section2 .slick-active .reading-card{
-    display: grid;
-    padding-left: 20%;
-
-
-    @media screen and (max-width: 1180px) {
-        padding-left: 15%;
-    }
-    @media screen and (max-width: 1100px) {
-        padding-left: 20%;
-    }
-    @media screen and (max-width: 950px) {
-        padding-left: 15%;
-    }
-    @media screen and (max-width: 800px) {
-        padding-left: 0;
-    }
-}
-.section2 .reading-card__next {
-    box-sizing: border-box;
-    padding: 0 10px;
 }
