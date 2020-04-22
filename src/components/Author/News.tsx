@@ -29,33 +29,40 @@ const News:React.FC<IProps> = (props) => {
 
     useEffect(() => {
         setIsLoading(true);
-        // if no author is selected, take different posts
-        if (author.payload === undefined || !props.isSpecificAuthor) {
-            
-            requestAPI.getPostsList(`/?page=${current}&limit=3fields=title,_id,category,author,featuredImage`)
-            .then(resp => {
-                setPosts(resp.data.docs);
-                setPages(resp.data.totalPages);
-                setIsLoading(false);
-            });
+        let array:Docs = [];
 
-        } else {
+        if (essential.payload !== undefined && freelance.payload !== undefined 
+            && popular.payload !== undefined) {
+
+            // if no author is selected, take different posts
+            array = [ ...essential.payload, ...freelance.payload, ...popular.payload];
+            
             // if author is selected take preloaded post from the store
             // because we can't pick up posts by author on the server
-            let array:Docs = [];
-            
-            if (essential.payload !== undefined && freelance.payload !== undefined 
-                && popular.payload !== undefined) {
-                array = [ ...essential.payload, ...freelance.payload, ...popular.payload];
-                array = array.filter(el => el.author._id === author.payload?._id);
+                
+            if (author.payload !== undefined && props.isSpecificAuthor) {
+                console.log("SPECIFIC")
+                array = array.filter(el => {
+                    console.log(el.title)
+                    console.log(el.author._id);
+                    console.log(author.payload?._id);
+                    console.log(el.author._id === author.payload?._id)
+                    return el.author._id === author.payload?._id
+                });
             }
+                setPosts(array.slice(current, current+3));
+                setPages(Math.ceil(array.length / 3));
+                setIsLoading(false);
+            }
+        }, [essential.payload, popular.payload, freelance.payload, author.payload, 
+            current, props.isSpecificAuthor]
+    );
+    
+    useEffect(() => {
+        //reset page if new author or another event occur
+        setCurrent(0);
+    }, [author.payload, props.isSpecificAuthor], )
 
-            setPosts(array.slice(current, current+3));
-            setPages(Math.ceil(array.length / 3))
-            setIsLoading(false);
-        }
-    }, [essential.payload, popular.payload, freelance.payload, author.payload, 
-        current, props.isSpecificAuthor]);
 
     return !isloading 
         ?  
