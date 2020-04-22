@@ -31,7 +31,7 @@ const PhotoCard: React.FC<IProps> = ({post, isText}) => {
                 <Link to="/post" className="photo-card__link">
                 
                     <div className='photo-card__photo'>
-                        <img src={post.featuredImage || 'https://picsum.photos/700'} className='photo-card__photo'
+                        <img src={post.featuredImage || `https://picsum.photos/700?${new Date().getMilliseconds()}` } className='photo-card__photo'
                             alt={post.title}/>
                     </div>
                 
