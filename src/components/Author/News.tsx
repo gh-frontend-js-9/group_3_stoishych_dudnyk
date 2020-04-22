@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import requestAPI from '../../services/requestAPI';
 import {DocsState, Docs} from "../../interfaces/docs";
 import PhotoCard from '../CardComponents/PhotoCard';
 import Pagination from './Pagination';
@@ -16,6 +15,8 @@ interface IProps {
 }
 
 const News:React.FC<IProps> = (props) => {
+
+    const POST_PER_PAGE = 3;
 
     let [posts, setPosts] = useState<Post[]>([]);
     let [pages, setPages] = useState<number>(1);
@@ -39,18 +40,10 @@ const News:React.FC<IProps> = (props) => {
             
             // if author is selected take preloaded post from the store
             // because we can't pick up posts by author on the server
-                
             if (author.payload !== undefined && props.isSpecificAuthor) {
-                console.log("SPECIFIC")
-                array = array.filter(el => {
-                    console.log(el.title)
-                    console.log(el.author._id);
-                    console.log(author.payload?._id);
-                    console.log(el.author._id === author.payload?._id)
-                    return el.author._id === author.payload?._id
-                });
+                array = array.filter(el => el.author._id === author.payload?._id);
             }
-                setPosts(array.slice(current, current+3));
+                setPosts(array.slice( (current-1) * POST_PER_PAGE, current * POST_PER_PAGE));
                 setPages(Math.ceil(array.length / 3));
                 setIsLoading(false);
             }
@@ -71,8 +64,12 @@ const News:React.FC<IProps> = (props) => {
                 <ul className={props.classes}>
                     { posts.map(post => <PhotoCard post={post} isText={false} key={post._id} />) }
                 </ul>
-    
-                <Pagination changeCurrentPage={setCurrent} pages={pages} current={current}/>
+
+                { pages > 1 
+                    ?  <Pagination changeCurrentPage={setCurrent} pages={pages} current={current}/>
+                    : null
+                }
+
             </> : <p className="section1__error">No posts found in the store</p>
 
         :   <Spinner size={3}/>
