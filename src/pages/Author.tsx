@@ -30,6 +30,7 @@ const Author:React.FC = () => {
 
     let [date, setDate] = useState<Date>(new Date());
 
+
     const popular = useSelector((state:DocsState) => {
         let array:Post[] = state.popular.payload;
         if ( array !== undefined) return state.popular.payload.slice(0, 3);

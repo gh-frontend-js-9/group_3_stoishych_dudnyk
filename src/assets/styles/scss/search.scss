@@ -15,10 +15,18 @@
         font-family: "Open Sans", sans-serif;
         width: 60%;
         margin-right: 5px;
+        cursor: pointer;
 
         &:focus {
             outline: none;
+        }
+
+        &:focus,
+        &:hover {
             border-bottom: 1px solid $purpleBlue;
+        }
+        &:after {
+            content: "asdad";
         }
     }
 

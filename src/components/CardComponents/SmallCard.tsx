@@ -17,7 +17,7 @@ const SmallCard:React.FC<IProps> = (props) => {
         <Link to="/post" className={"sm-card " +(props.isPhoto ? "sm-card_col_2" : "") } 
         onClick={() => dispatch(setCurrentPost(props.post._id))}>
                 { props.isPhoto
-                    ? <img src={props.post.featuredImage || 'https://picsum.photos/80'} alt={props.post.title} className="sm-card__image"/>
+                    ? <img src={props.post.featuredImage || `https://picsum.photos/80?${new Date().getMilliseconds()}`} alt={props.post.title} className="sm-card__image"/>
                     : null
                 }
                 <div>
