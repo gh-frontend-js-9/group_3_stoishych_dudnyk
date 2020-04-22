@@ -16,21 +16,18 @@
     &__image{
         width: 80px;
         height: 80px;
-        word-break: break-all;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
         border-radius: 8px;
     }
 
     &__tags {
         text-transform: uppercase;
-        word-break: break-all;
         color: $gray;
         line-height: 30px;
     }
 
     &__title {
         transition: 0.3s;
-        word-break: break-all;
         font-weight: 600;
     }
 

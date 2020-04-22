@@ -60,7 +60,7 @@ const News:React.FC<IProps> = (props) => {
     
     useEffect(() => {
         //reset page if new author or another event occur
-        setCurrent(0);
+        setCurrent(1);
     }, [author.payload, props.isSpecificAuthor], )
 
 
