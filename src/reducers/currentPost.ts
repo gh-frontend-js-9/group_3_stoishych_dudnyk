@@ -22,7 +22,6 @@ export const currentPostReducer: Reducer<any, CurrentPostActionsType> =
     switch (action.type) {
         case CurrentPostActions.SET_CURRENT_POST: {
             return {
-                ...state,
                 id: action.payload
             }
         }
