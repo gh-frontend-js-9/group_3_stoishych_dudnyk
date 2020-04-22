@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import requestAPI from '../../services/requestAPI';
 import {DocsState, Docs} from "../../interfaces/docs";
 import PhotoCard from '../CardComponents/PhotoCard';
 import Pagination from './Pagination';
@@ -17,6 +16,8 @@ interface IProps {
 
 const News:React.FC<IProps> = (props) => {
 
+    const POST_PER_PAGE = 3;
+
     let [posts, setPosts] = useState<Post[]>([]);
     let [pages, setPages] = useState<number>(1);
     let [current, setCurrent] = useState<number>(1);
@@ -29,33 +30,32 @@ const News:React.FC<IProps> = (props) => {
 
     useEffect(() => {
         setIsLoading(true);
-        // if no author is selected, take different posts
-        if (author.payload === undefined || !props.isSpecificAuthor) {
-            
-            requestAPI.getPostsList(`/?page=${current}&limit=3fields=title,_id,category,author,featuredImage`)
-            .then(resp => {
-                setPosts(resp.data.docs);
-                setPages(resp.data.totalPages);
-                setIsLoading(false);
-            });
+        let array:Docs = [];
 
-        } else {
+        if (essential.payload !== undefined && freelance.payload !== undefined 
+            && popular.payload !== undefined) {
+
+            // if no author is selected, take different posts
+            array = [ ...essential.payload, ...freelance.payload, ...popular.payload];
+            
             // if author is selected take preloaded post from the store
             // because we can't pick up posts by author on the server
-            let array:Docs = [];
-            
-            if (essential.payload !== undefined && freelance.payload !== undefined 
-                && popular.payload !== undefined) {
-                array = [ ...essential.payload, ...freelance.payload, ...popular.payload];
+            if (author.payload !== undefined && props.isSpecificAuthor) {
                 array = array.filter(el => el.author._id === author.payload?._id);
             }
+                setPosts(array.slice( (current-1) * POST_PER_PAGE, current * POST_PER_PAGE));
+                setPages(Math.ceil(array.length / 3));
+                setIsLoading(false);
+            }
+        }, [essential.payload, popular.payload, freelance.payload, author.payload, 
+            current, props.isSpecificAuthor]
+    );
+    
+    useEffect(() => {
+        //reset page if new author or another event occur
+        setCurrent(1);
+    }, [author.payload, props.isSpecificAuthor], )
 
-            setPosts(array.slice(current, current+3));
-            setPages(Math.ceil(array.length / 3))
-            setIsLoading(false);
-        }
-    }, [essential.payload, popular.payload, freelance.payload, author.payload, 
-        current, props.isSpecificAuthor]);
 
     return !isloading 
         ?  
@@ -64,8 +64,12 @@ const News:React.FC<IProps> = (props) => {
                 <ul className={props.classes}>
                     { posts.map(post => <PhotoCard post={post} isText={false} key={post._id} />) }
                 </ul>
-    
-                <Pagination changeCurrentPage={setCurrent} pages={pages} current={current}/>
+
+                { pages > 1 
+                    ?  <Pagination changeCurrentPage={setCurrent} pages={pages} current={current}/>
+                    : null
+                }
+
             </> : <p className="section1__error">No posts found in the store</p>
 
         :   <Spinner size={3}/>
