@@ -21,8 +21,12 @@ import TagContainer from '../components/Tag/TagContainer';
 import { DocsState, Post } from "../interfaces/docs";
 import { useSelector } from "react-redux";
 import Spinner from '../components/Spinner';
+import { useQuery } from '../App';  
 
 const Author:React.FC = () => {
+
+    const query = useQuery();
+    let queryId = query.get("id");
 
     let [date, setDate] = useState<Date>(new Date());
 
@@ -71,11 +75,16 @@ const Author:React.FC = () => {
 
                 <section className="section1">
 
-                    { !!popular
+                    { !!popular && !!recent
                     ? (<>
                         
-                        <AuthorBlock classes="section1__author-info"/>
-                        <News classes="section1__news" />
+                        { queryId !== 'all' 
+                            ? <AuthorBlock classes="section1__author-info"/>
+                            : null
+                        }
+
+                        <News classes="section1__news" isSpecificAuthor= { queryId !== 'all' }/>
+
 
                         <div className="section1__subscribe section1__subscribe_offset">
                             <p className="section1__subscribe-title">

@@ -9,7 +9,7 @@ export const Nav = (props:{sideNav:boolean, isWhite?: boolean | undefined}) => {
         },
         {
             text: "Author",
-            href: "/author"
+            href: "/author?id=all"
         },
     ];
 
