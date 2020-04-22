@@ -13,7 +13,6 @@ interface IProps {
 }
 
 const SmallCardsContainer:React.FC<IProps> = (props) => {
-    console.log(props.posts);
     return (
         <article className={"sm-cards-container " + props.classes}>
 

@@ -11,7 +11,8 @@ import Spinner from '../Spinner';
 import { useSelector } from 'react-redux';
 
 interface IProps {
-    classes?: string
+    classes?: string,
+    isSpecificAuthor: boolean
 }
 
 const News:React.FC<IProps> = (props) => {
@@ -21,62 +22,40 @@ const News:React.FC<IProps> = (props) => {
     let [current, setCurrent] = useState<number>(1);
     let [isloading, setIsLoading] = useState<boolean>(true);
 
-
     const essential = useSelector((state: DocsState) => state.essential);
     const popular = useSelector((state: DocsState) => state.popular);
     const freelance = useSelector((state: DocsState) => state.freelance);
     const author = useSelector((state: DocsState) => state.currentAuthor);
 
-
     useEffect(() => {
         setIsLoading(true);
-        if (author.payload === undefined) {
+        // if no author is selected, take different posts
+        if (author.payload === undefined || !props.isSpecificAuthor) {
+            
             requestAPI.getPostsList(`/?page=${current}&limit=3fields=title,_id,category,author,featuredImage`)
             .then(resp => {
                 setPosts(resp.data.docs);
                 setPages(resp.data.totalPages);
                 setIsLoading(false);
             });
+
         } else {
-            console.log(essential.payload)
+            // if author is selected take preloaded post from the store
+            // because we can't pick up posts by author on the server
             let array:Docs = [];
+            
             if (essential.payload !== undefined && freelance.payload !== undefined 
                 && popular.payload !== undefined) {
                 array = [ ...essential.payload, ...freelance.payload, ...popular.payload];
                 array = array.filter(el => el.author._id === author.payload?._id);
             }
-            setPosts(array);
+
+            setPosts(array.slice(current, current+3));
             setPages(Math.ceil(array.length / 3))
             setIsLoading(false);
         }
-
-    }, [current, essential.payload, popular.payload, freelance.payload]);
-
-
-    // useEffect(() => {
-    //     setIsLoading(true);
-        // let array:Docs = [];
-        // console.log(essential.payload)
-        
-        // if (essential.payload !== undefined && freelance.payload !== undefined 
-        //     && popular.payload !== undefined) {
-        //     console.log("ASDSADASDASASD");
-        //     array = [ ...essential.payload, ...freelance.payload, ...popular.payload];
-        //     console.log(array);
-        //     array = array.filter(el => {
-        //         console.log("el");
-        //         console.log(el._id);
-        //         console.log(author.payload?._id);
-        //         console.log(el.author._id === author.payload?._id)
-        //         return el.author._id === author.payload?._id});
-
-        // }
-
-        // setPosts(array);
-
-        // setIsLoading(false);
-    // }, [current])
-
+    }, [essential.payload, popular.payload, freelance.payload, author.payload, 
+        current, props.isSpecificAuthor]);
 
     return !isloading 
         ?  
@@ -87,7 +66,7 @@ const News:React.FC<IProps> = (props) => {
                 </ul>
     
                 <Pagination changeCurrentPage={setCurrent} pages={pages} current={current}/>
-            </> : <p className="section1__error">No posts found</p>
+            </> : <p className="section1__error">No posts found in the store</p>
 
         :   <Spinner size={3}/>
 }

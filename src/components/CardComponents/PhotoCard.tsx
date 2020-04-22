@@ -40,7 +40,7 @@ const PhotoCard: React.FC<IProps> = ({post, isText}) => {
                 <p className='photo-card__description'>
                     By&nbsp;
                     
-                    <Link to="/author" onClick={openAuthorPage} className="photo-card__link"> 
+                    <Link to={`/author?id=${post.author._id}`} onClick={openAuthorPage} className="photo-card__link"> 
                         <span className='photo-card__author'>
                             {`${post.author.firstName} ${post.author.lastName}`}
                         </span>

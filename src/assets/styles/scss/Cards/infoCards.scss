@@ -32,7 +32,7 @@
         cursor: pointer;
         font-size: 1em;
         text-align: center;
-        transition: 0.1s;
+        transition: 0.3s;
 
         &:hover {
             color: $pink;
@@ -118,7 +118,10 @@
     }
 
     &:hover {
-        color: $pink;
+
+        & .small-card__title {
+            color: $pink;
+        }
     }
 }
 

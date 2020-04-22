@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Home } from "./pages/Home";
 import Author from './pages/Author';
 
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import Footer from './components/Footer';
@@ -28,6 +28,11 @@ library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF,
     faSyncAlt, faChevronLeft, faChevronRight, faEllipsisH,
     faTimes, faHeart, faEye);
 
+
+export function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
+    
 
 function App() {
     const dispatch = useDispatch();
