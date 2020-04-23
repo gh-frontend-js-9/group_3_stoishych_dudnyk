@@ -26,7 +26,7 @@ import { useQuery } from '../App';
 const Author:React.FC = () => {
 
     const query = useQuery();
-    
+
     let queryId = query.get("id");
     let queryText = query.get("query") || ''; 
 
@@ -113,7 +113,7 @@ const Author:React.FC = () => {
 
                 <section className="section2">
 
-                    <Search classes="section2__search"/>
+                    <Search classes="section2__search" isUnderline={true}/>
 
                     <SmallCardsContainer posts={popular} isPhoto={true} classes="section2__sm-cards-container">
                         Popular Posts

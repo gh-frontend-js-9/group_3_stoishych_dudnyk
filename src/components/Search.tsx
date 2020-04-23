@@ -6,7 +6,9 @@ import { useHistory } from 'react-router-dom';
 import { useQuery } from '../App';
 
 interface IProps {
-    classes?: string,}
+    classes?: string,
+    isUnderline: boolean
+}
 
 const Search:React.FC<IProps> = (props) => {
     let [value, setValue] = useState<string>('');
@@ -30,7 +32,7 @@ const Search:React.FC<IProps> = (props) => {
 
     return (
         <div className={"search "+props.classes}>
-            <div className="search__input-container">
+            <div className={"search__input-container " + (props.isUnderline ? "search__input-container_underline" : "")}>
                 <input type="text" name="search" placeholder="Type something..." className="search__input"
                     onChange={onChange} value={value} onKeyDown={onKeyDown}/>
             </div>
