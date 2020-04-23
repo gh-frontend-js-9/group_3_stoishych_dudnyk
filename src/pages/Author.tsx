@@ -26,10 +26,11 @@ import { useQuery } from '../App';
 const Author:React.FC = () => {
 
     const query = useQuery();
+    
     let queryId = query.get("id");
+    let queryText = query.get("query") || ''; 
 
     let [date, setDate] = useState<Date>(new Date());
-
 
     const popular = useSelector((state:DocsState) => {
         let array:Post[] = state.popular.payload;
@@ -84,7 +85,12 @@ const Author:React.FC = () => {
                             : null
                         }
 
-                        <News classes="section1__news" isSpecificAuthor= { queryId !== 'all' }/>
+                        { !!queryText
+                            ? <p className="section1__searching-text">Results for '{`${queryText}`}'</p>
+                            : null
+                        }
+
+                        <News classes="section1__news" isSpecificAuthor= { queryId !== 'all' } searhingText={queryText}/>
 
 
                         <div className="section1__subscribe section1__subscribe_offset">
@@ -107,7 +113,7 @@ const Author:React.FC = () => {
 
                 <section className="section2">
 
-                    <Search classes="section2__search" />
+                    <Search classes="section2__search"/>
 
                     <SmallCardsContainer posts={popular} isPhoto={true} classes="section2__sm-cards-container">
                         Popular Posts

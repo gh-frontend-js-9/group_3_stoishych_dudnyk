@@ -11,7 +11,8 @@ import { useSelector } from 'react-redux';
 
 interface IProps {
     classes?: string,
-    isSpecificAuthor: boolean
+    isSpecificAuthor: boolean,
+    searhingText: string
 }
 
 const News:React.FC<IProps> = (props) => {
@@ -43,12 +44,24 @@ const News:React.FC<IProps> = (props) => {
             if (author.payload !== undefined && props.isSpecificAuthor) {
                 array = array.filter(el => el.author._id === author.payload?._id);
             }
+            
+            // take posts that have searching text
+            if (props.searhingText !== null) {
+                array = array.filter(el => {
+                    let item = props!.searhingText.toLocaleLowerCase();
+
+                    return el.title.toLocaleLowerCase().includes(item) ||
+                    el.category.join(" ").toLocaleLowerCase().includes(item) ||
+                    el.author.firstName.toLocaleLowerCase().includes(item) ||
+                    el.author.lastName.toLocaleLowerCase().includes(item);
+                });
+            }
                 setPosts(array.slice( (current-1) * POST_PER_PAGE, current * POST_PER_PAGE));
                 setPages(Math.ceil(array.length / 3));
                 setIsLoading(false);
             }
         }, [essential.payload, popular.payload, freelance.payload, author.payload, 
-            current, props.isSpecificAuthor]
+            current, props.isSpecificAuthor, props.searhingText]
     );
     
     useEffect(() => {
