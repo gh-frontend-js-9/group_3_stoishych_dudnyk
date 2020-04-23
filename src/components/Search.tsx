@@ -20,6 +20,7 @@ const Search: React.FC<IProps> = (props) => {
       history.push(`/author?id=${query.get('id') || 'all'}&query=${value}`);
       setValue('');
     }
+    window.scrollTo(0, 0);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
