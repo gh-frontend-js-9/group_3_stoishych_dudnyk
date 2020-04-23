@@ -1,14 +1,14 @@
-import {PayloadAction} from "./payloadAction";
-import {Action} from "redux";
-import {Author} from "../interfaces/author";
-import {ErrorAction, ErrorResponse} from "./errorAction";
-import {AxiosResponse} from "axios";
+import { Action } from 'redux';
+import { AxiosResponse } from 'axios';
+import { PayloadAction } from './payloadAction';
+import { Author } from '../interfaces/author';
+import { ErrorAction, ErrorResponse } from './errorAction';
 
 export enum CurrentAuthorActions {
-    SET_CURRENT_AUTHOR = "SET_CURRENT_AUTHOR",
-    GET_CURRENT_AUTHOR_REQUESTED = "GET_CURRENT_AUTHOR_REQUESTED",
-    GET_CURRENT_AUTHOR_SUCCEEDED = "GET_CURRENT_AUTHOR_SUCCEEDED",
-    GET_CURRENT_AUTHOR_FAILED = "GET_CURRENT_AUTHOR_FAILED"
+    SET_CURRENT_AUTHOR = 'SET_CURRENT_AUTHOR',
+    GET_CURRENT_AUTHOR_REQUESTED = 'GET_CURRENT_AUTHOR_REQUESTED',
+    GET_CURRENT_AUTHOR_SUCCEEDED = 'GET_CURRENT_AUTHOR_SUCCEEDED',
+    GET_CURRENT_AUTHOR_FAILED = 'GET_CURRENT_AUTHOR_FAILED'
 }
 
 export interface CurrentAuthor
@@ -33,29 +33,29 @@ export type CurrentAuthorActionsType =
     | GetCurrentAuthorSucceeded
     | GetCurrentAuthorFailed
 
-export function setCurrentAuthor(author:Author): CurrentAuthor {
-    return {
-        type: CurrentAuthorActions.SET_CURRENT_AUTHOR,
-        payload: author
-    }
+export function setCurrentAuthor(author: Author): CurrentAuthor {
+  return {
+    type: CurrentAuthorActions.SET_CURRENT_AUTHOR,
+    payload: author,
+  };
 }
 
 export function getCurrentAuthorRequested(): GetCurrentAuthorRequested {
-    return {
-        type: CurrentAuthorActions.GET_CURRENT_AUTHOR_REQUESTED
-    }
+  return {
+    type: CurrentAuthorActions.GET_CURRENT_AUTHOR_REQUESTED,
+  };
 }
 
 export function getCurrentAuthorSucceeded(author: Author): GetCurrentAuthorSucceeded {
-    return {
-        type: CurrentAuthorActions.GET_CURRENT_AUTHOR_SUCCEEDED,
-        payload: author
-    }
+  return {
+    type: CurrentAuthorActions.GET_CURRENT_AUTHOR_SUCCEEDED,
+    payload: author,
+  };
 }
 
-export function getCurrentAuthorFailed(errorResponse:AxiosResponse<ErrorResponse>): GetCurrentAuthorFailed {
-    return {
-        type: CurrentAuthorActions.GET_CURRENT_AUTHOR_FAILED,
-        error: errorResponse
-    }
+export function getCurrentAuthorFailed(errorResponse: AxiosResponse<ErrorResponse>): GetCurrentAuthorFailed {
+  return {
+    type: CurrentAuthorActions.GET_CURRENT_AUTHOR_FAILED,
+    error: errorResponse,
+  };
 }

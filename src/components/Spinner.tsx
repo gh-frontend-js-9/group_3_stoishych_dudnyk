@@ -8,12 +8,10 @@ interface IProps {
     size: number;
 }
 
-const Spinner = (props:IProps) => {
-    return (
-        <div className='spinner spinner_mg_10' style={{fontSize: `${props.size}em`}}>
-            <FontAwesomeIcon icon='sync-alt' spin/> 
-        </div>
-    )
-} 
+const Spinner = (props: IProps) => (
+  <div className="spinner spinner_mg_10" style={{ fontSize: `${props.size}em` }}>
+    <FontAwesomeIcon icon="sync-alt" spin />
+  </div>
+);
 
 export default Spinner;
