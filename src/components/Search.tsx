@@ -17,7 +17,7 @@ const Search:React.FC<IProps> = (props) => {
 
     const search = ():void => {
         if (value.length > 1) {
-            history.push(`/author?id=${query.get("id")}&query=${value}`)
+            history.push(`/author?id=${query.get("id") || 'all'}&query=${value}`)
             setValue('');
         }
     }
