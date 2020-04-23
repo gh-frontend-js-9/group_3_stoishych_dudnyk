@@ -1,16 +1,14 @@
-import React from "react";
-import {Nav} from "../Nav";
-import {HeaderButton} from "../HeaderButton";
-import {Logo} from "../../Logo";
+import React from 'react';
+import { Nav } from '../Nav';
+import { HeaderButton } from '../HeaderButton';
+import { Logo } from '../../Logo';
 
-export const SideNav = () => {
-    return (
-        <>
-            <div className="sidenav">
-                <Logo colorClass='logo_black' />
-                <Nav sideNav={true}/>
-                <HeaderButton isBlack={true}/>
-            </div>
-        </>
-    )
-};
+export const SideNav = () => (
+  <>
+    <div className="sidenav">
+      <Logo colorClass="logo_black" />
+      <Nav sideNav />
+      <HeaderButton isWhite={false} />
+    </div>
+  </>
+);

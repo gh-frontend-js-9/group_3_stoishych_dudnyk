@@ -3,22 +3,18 @@ import React from 'react';
 import '../../assets/styles/scss/Cards/photoCards.scss';
 
 import PhotoCard from './PhotoCard';
-import  { IPost } from '../../interfaces/cardInterfaces';
+import { Post } from '../../interfaces/docs';
 
 interface IProps {
-    cards: IPost[]
+    cards: Post[];
 }
 
-const PhotoCardsContainer = (props: IProps) => {
-    return (
-        <div className='photo-card-container'>
-            {
-                props.cards.map(el => {
-                    return <PhotoCard key={el._id}  post={el} isText={true}/>
-                })
+const PhotoCardsContainer = (props: IProps) => (
+  <div className="photo-card-container">
+    {
+                props.cards.map((el) => <PhotoCard key={el._id} post={el} isText />)
             }
-        </div>
-    )
-}
+  </div>
+);
 
 export default PhotoCardsContainer;

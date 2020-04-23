@@ -1,31 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import { IPost } from '../../interfaces/cardInterfaces';
 import SmallCard from './SmallCard';
 
 import '../../assets/styles/scss/Cards/smallCardsContainer.scss';
+import { Post } from '../../interfaces/docs';
+import Spinner from '../Spinner';
 
 interface IProps {
-    posts: IPost[],
-    isPhoto: boolean,
-    classes?: string
+    posts: Post[];
+    isPhoto: boolean;
+    classes?: string;
 }
 
-const SmallCardsContainer:React.FC<IProps> = (props) => {
+const SmallCardsContainer: React.FC<IProps> = (props) => (
+  <article className={`sm-cards-container ${props.classes}`}>
 
-    return (
-        <article className={"sm-cards-container " + props.classes}>
-            
-            <span className="sm-cards-container__title">{props.children}</span>
+    <span className="sm-cards-container__title">{props.children}</span>
 
-            <div className="sm-cards-container__card-list">
-                {!!props.posts.length
-                    ? props.posts.map( (el) => <SmallCard post={el} isPhoto={props.isPhoto} key={el._id}/>)
-                    : null
-                }
-            </div>
-        </article>
-    )
-}
+    <div className="sm-cards-container__card-list">
+      {props.posts !== undefined
+        ? props.posts.map((el) => <SmallCard post={el} isPhoto={props.isPhoto} key={el._id} />)
+        : <Spinner size={2} />}
+    </div>
+  </article>
+);
 
 export default SmallCardsContainer;

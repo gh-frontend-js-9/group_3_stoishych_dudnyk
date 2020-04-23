@@ -5,84 +5,124 @@
     margin: 10px 0; 
     width: 100%;
     justify-content: center;
-    
+
     &_size_sm {
-        height: 40px;
+        height: 43px;
     }
 
     &_size_lg {
         height: 70px;
     }
-
-    &__email {
-        box-sizing: border-box;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.14);
-        border-radius: 40px;
-        border: none;
-        padding: 10px;
-        height: 100%;
-        width: 50%;
-        transform: translate(15%);
+    
+    &__container {
+        position: relative;
+        width: 80%;
+        min-width: 230px;
 
         &_size {
             &_sm {
-                padding-right: 55px;
-                max-width: 220px;
-                padding-left: 15px;
+                max-width: 282px;
             }
 
             &_lg {
-                padding-left: 30px;
-                padding-right: 90px;
-                max-width: 420px;
+                max-width: 523px;
+
+                @media screen and (max-width: 400px){
+                    width: 100%;
+                }
             }
         }
 
-
-        &:focus {
-            outline: none;
-            box-shadow:  0 0 8px rgba($color: $purpleBlue, $alpha: 1.0);
+        @media screen and (max-width: 800px) {
+            max-width: 500px;
         }
     }
 
     &__btn {
+        position: absolute;
+        box-sizing: border-box;
+        right: 0;
         height: 100%;
-        transform: translate(-10%);
-        width: 30%;
-        
+        width: 100%;
+        font-weight: 600;
+
+        @media screen and (max-width: 1180px) {
+            max-width: 80px;
+        }
+        @media screen and (max-width: 800px) {
+            max-width: 103px;
+        }
+
         &_size {
             &_sm {
-                max-width: 100px;
+                max-width: 103px;
+                letter-spacing: -0.29px;
             }
 
             &_lg {
+                font-size: 1.5em;
                 max-width: 170px;
+                letter-spacing: -0.5px;
+
+                @media screen and (max-width: 950px){
+                    font-size: 1.3em;
+                    max-width: 140px;
+                }
+                @media screen and (max-width: 800px){
+                    font-size: 1.5em;
+                    max-width: 170px;
+                }
+                @media screen and (max-width: 500px){
+                    font-size: 1.3em;
+                    max-width: 120px;
+                }
             }
         }
     }
 
-    @media screen and (max-width: 1180px) {
-           &__btn {
-               width: 30%;
-           }
-           &__email {
-               width: 60%;
-           }
-    }
-    
-    @media screen and (max-width: 1000px) {
-        & {
-            font-size: 14px;
-        }    
-    }
-    
-    @media screen and (max-width: 800px) {
-        & {
-            font-size: 14px;
+    &__email {
+        box-sizing: border-box;
+        box-shadow: 0 0 8px rgba(25, 24, 24, 0.14);
+        border-radius: 40px;
+        border: none;
+        height: 100%;
+        padding: 15px;
+        width: 100%;
+        font-size: 1em;
+
+        &_size {
+            
+            &_sm {
+                padding-right: 110px;
+                padding-left: 15px;
+                @media screen and (max-width: 1180px) {
+                    padding-right: 85px;
+                }
+                @media screen and (max-width: 800px) {
+                    padding-right: 110px;
+                }
+            }
+
+            &_lg {
+                padding-right: 175px;
+                padding-left: 30px;
+
+                @media screen and (max-width: 950px) {
+                    padding-right: 145px;
+                }
+                
+                @media screen and (max-width: 800px) {
+                    padding-right: 175px;
+                }
+                @media screen and (max-width: 500px) {
+                    padding-right: 125px;
+                }
+            }
         }
-        &__email {
-            max-width: 300px;
-            width: 60%;
+
+        &:focus {
+            outline: none;
+            box-shadow:  0 0 8px rgba($color: $purpleBlue, $alpha: 1.0);
         }
     }
 }

@@ -1,0 +1,27 @@
+@import '../colors';
+
+.post-hero {
+  margin-top: 200px;
+}
+
+.post-hero__color {
+  color: black;
+}
+
+.post-hero__author {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+  
+  &:hover {
+    color: $pink;
+  }
+}
+
+.post-hero__description {
+  text-transform: uppercase;
+  color: $gray;
+  margin: 30px 0 60px 0;
+}
+
+

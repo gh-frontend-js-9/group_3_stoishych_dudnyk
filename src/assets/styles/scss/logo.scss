@@ -5,7 +5,7 @@
 
     &_black svg g path {
         fill: $black;
-    }  
+    }
 
     &_white svg g path {
         fill: $white;
@@ -18,11 +18,10 @@
     & svg g path {
         transition: 0.3s;
     }
-    
+
     &:hover svg g path {
-        fill: $red;
+        fill: $pink;
     }
 
 
 }
-  

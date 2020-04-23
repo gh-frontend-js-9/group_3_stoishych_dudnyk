@@ -1,14 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Post } from '../../interfaces/docs';
+import { setCurrentPost } from '../../actions/currentPost';
 
-import { IPost } from '../../interfaces/cardInterfaces';
+const SmallInfoCard = (props: Post) => {
+  const dispatch = useDispatch();
+  return (
+    <div className="small-card" onClick={() => dispatch(setCurrentPost(props._id))}>
+      <Link to="/post" className="post-link__black">
+        <p className="small-card__type">{props.category[0]}</p>
+        <h3 className="small-card__title">{props.title}</h3>
+      </Link>
+    </div>
 
-const SmallInfoCard = (props:IPost) => {
-    return (
-        <div className='small-card'>
-            <p className='small-card__type'>{props.category[0]}</p>
-            <h3 className='small-card__title'>{props.title}</h3>
-        </div>
-    )
-}
+  );
+};
 
 export default SmallInfoCard;

@@ -17,11 +17,19 @@
         align-items: center;
         margin: 0 5px;
 
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
         @media screen and (max-width: 1050px){
             height: 60px;
             width: 60px;
         }
-        
+
         @media screen and (max-width: 900px){
             height: 50px;
             width: 50px;
@@ -33,8 +41,13 @@
         }
 
         @media screen and (max-width: 600px){
-            height: 50px;
-            width: 50px;
+            height: 45px;
+            width: 45px;
+        }
+
+        @media screen and (max-width: 400px){
+            height: 33px;
+            width: 33px;
         }
 
         &:hover {
@@ -42,7 +55,7 @@
         }
 
         &_active {
-            background-color: $red;
+            background-color: $pink;
         }
     }
     &__dots {
@@ -52,6 +65,11 @@
 
         &:hover {
             color: $purpleBlue;
+        }
+        
+        @media screen and (max-width: 375px){
+            font-size: 20px;
+            margin: 0 5px;
         }
     }
 

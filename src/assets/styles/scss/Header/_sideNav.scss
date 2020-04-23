@@ -24,8 +24,12 @@
   color: black;
 }
 
+.nav-item__link_white {
+  color: white;
+}
+
 .sidenav-items .nav-item__link:hover {
-  color: $secondary-color;
+  color: $white;
 }
 
 .sidenav-items .nav-item {
@@ -50,4 +54,24 @@
   transition: opacity 0.4s;
 }
 
+.sidenav__search {
+  display: flex;
+  position: relative;
+  
+  & .search__input-container {
+    display: none;
+  }
+
+  & .search__input {
+    padding: 0 10px;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    & .search__input-container {
+      display: flex;
+    }
+  }
+}
 

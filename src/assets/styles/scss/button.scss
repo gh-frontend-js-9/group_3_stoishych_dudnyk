@@ -10,13 +10,14 @@
     color: white;
     transition: background-color 0.3s;
     cursor: pointer;
-    
+    transition: 0.3s;
+
     &:hover {
         background-color: $purpleBlue;
     }
-    
+
     &_bg_pink {
-        background-color: $red;
+        background-color: $pink;
     }
-    
+
 }

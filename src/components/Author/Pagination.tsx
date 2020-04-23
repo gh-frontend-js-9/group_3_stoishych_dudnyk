@@ -1,76 +1,84 @@
-import React, { /*useEffect*/ } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events,
+jsx-a11y/no-noninteractive-element-interactions */
+import React, { useEffect } from 'react';
 
 import '../../assets/styles/scss/pagination.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  createUltimatePagination, PaginationComponentProps, ItemTypeToComponent, UltimatePaginationProps,
+} from 'react-ultimate-pagination';
 
 interface IProps {
-    pages: number,
-    current: number,
-    changeCurrentPage: (arg0:number) => void;
+    pages: number;
+    current: number;
+    changeCurrentPage: (arg0: number) => void;
 }
 
 
-const Pagination:React.FC<IProps> = (props) => {
-    let pageArray: number[] = [];
-    
-    for (let i=1; i <= props.pages; i++) pageArray.push(i);
+const Pagination: React.FC<IProps> = ({ current, pages, changeCurrentPage }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [current]);
 
-    const nextPage = () => {
-        if (props.current !== props.pages)
-            props.changeCurrentPage(props.current+1);
-    }
+  const Page = (props: PaginationComponentProps): JSX.Element => (
+    <li
+      onClick={props.onClick}
+      className={`pagination__number ${props.isActive ? 'pagination__number_active' : ''}`}
+    >
 
-    const prevPage = () => {
-        if (props.current !== 1)
-            props.changeCurrentPage(props.current-1);
-    }
+      {props.value}
+    </li>
+  );
 
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // });
-    
+  const Ellipsis = (props: PaginationComponentProps): JSX.Element => (
+    <li className="pagination__dots" onClick={props.onClick}>
+      <FontAwesomeIcon icon="ellipsis-h" />
+    </li>
+  );
 
-    return (
-        <ul className="pagination" >
-            
-            <li onClick={prevPage} className="pagination__number">
-                <FontAwesomeIcon icon="chevron-left" />
-            </li>
+  const PreviousPageLink = (props: PaginationComponentProps): JSX.Element => (
+    <li onClick={props.onClick} className="pagination__number">
+      <FontAwesomeIcon icon="chevron-left" />
+    </li>
+  );
 
-            {pageArray.map(el => {
-                
-                // select only the current, previous, next, first and last pages
-                if (el === props.current ||  el === (props.current-1) || el === (props.current+1) ||
-                    el === 1 || el === props.pages) {
-                    return (
-                        <li onClick={() => props.changeCurrentPage(el)} key={el}
-                            className={"pagination__number " + (props.current === el ? "pagination__number_active" : "")}>
-                            {el}
-                        </li>
-                    )
-                // insert ...  if too many pages in range from 1 to current-1
-                } else if (el === (props.current - 2) && el !== 1) {
-                    return (
-                        <li className="pagination__dots" key={el} onClick={() => props.changeCurrentPage(props.current-2)}>
-                            <FontAwesomeIcon icon='ellipsis-h'/>
-                        </li>
-                    )
-                // insert ...  if too many pages in range from current+1 to last
-                } else if ( el === (props.current + 2) && el !== props.pages)  {
-                    return (
-                        <li className="pagination__dots" key={el} onClick={() => props.changeCurrentPage(props.current+2)}>
-                            <FontAwesomeIcon icon='ellipsis-h'/>
-                        </li>   
-                    )
-                } else return ""
-            })}
+  const NextPageLink = (props: PaginationComponentProps): JSX.Element => (
+    <li onClick={props.onClick} className="pagination__number">
+      <FontAwesomeIcon icon="chevron-right" />
+    </li>
 
-            <li onClick={nextPage} className="pagination__number">
-                <FontAwesomeIcon icon="chevron-right" />
-            </li>
+  );
 
-        </ul>
-    )
-} 
+  // eslint-disable-next-line no-shadow
+  const LastPageLink = (props: PaginationComponentProps): JSX.Element => <></>;
+  // eslint-disable-next-line no-shadow
+  const FirstPageLink = (props: PaginationComponentProps): JSX.Element => <></>;
+
+  const Wrapper = (props: {children: React.ReactNode}): JSX.Element => <ul className="pagination">{props.children}</ul>;
+
+  const itemTypeToComponent: ItemTypeToComponent = {
+    PAGE: Page,
+    ELLIPSIS: Ellipsis,
+    FIRST_PAGE_LINK: FirstPageLink,
+    PREVIOUS_PAGE_LINK: PreviousPageLink,
+    NEXT_PAGE_LINK: NextPageLink,
+    LAST_PAGE_LINK: LastPageLink,
+  };
+
+  const UltimatePagination: React.ComponentType<UltimatePaginationProps> = createUltimatePagination(
+    { itemTypeToComponent, WrapperComponent: Wrapper },
+  );
+
+  return (
+    <UltimatePagination
+      currentPage={current}
+      totalPages={pages}
+      onChange={changeCurrentPage}
+      boundaryPagesRange={1}
+      siblingPagesRange={0}
+      hideFirstAndLastPageLinks={false}
+    />
+  );
+};
 
 export default Pagination;

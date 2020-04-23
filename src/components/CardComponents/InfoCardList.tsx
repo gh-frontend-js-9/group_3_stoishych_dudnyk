@@ -1,26 +1,22 @@
 import React from 'react';
 
-import BigInfoCard from './BigInfoCard'
+import BigInfoCard from './BigInfoCard';
 import SmallInfoCard from './SmallInfoCard';
 
-import { IPostsBlock} from '../../interfaces/cardInterfaces';
+import { CategoryState, Docs } from '../../interfaces/docs';
 
-const InfoCardList = (props:IPostsBlock) => {
-    return (
-        <div className='info-container__cards-list'>
-            
-            <BigInfoCard {...props.docs[0]} />
+const InfoCardList: React.FC<CategoryState> = ({ payload }) => (
+  <div className="info-container__cards-list">
 
-            <div className='info-container__small-cards-container'>
-                {props.docs.map((el, index) => {
-                    return index === 0 
-                        ? ''
-                        : <SmallInfoCard {...el} key={el._id}/>
-                })}
-            </div> 
-        
-        </div>
-    )
-}
+    <BigInfoCard {...payload[0]} />
+
+    <div className="info-container__small-cards-container">
+      {(payload as Docs).map((el, index) => (index === 0
+        ? ''
+        : <SmallInfoCard {...el} key={el._id} />))}
+    </div>
+
+  </div>
+);
 
 export default InfoCardList;
