@@ -12,7 +12,6 @@ export interface IconProps {
 
 const IconContainer:React.FC<IconProps> = (props) => {
 
-    // let links:any = [];
     let {classes, ...other} = props
 
     return (
