@@ -1,5 +1,4 @@
 import React from "react";
-import {ReactComponent as SearchImg} from "../../assets/images/search.svg"
 import Search from '../Search';
 
 export const HeaderButton = (props:{isWhite:boolean}) => {
