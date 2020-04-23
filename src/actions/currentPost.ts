@@ -1,14 +1,14 @@
-import {PayloadAction} from "./payloadAction";
-import {Action} from "redux";
-import {Post} from "../interfaces/docs";
-import {ErrorAction, ErrorResponse} from "./errorAction";
-import {AxiosResponse} from "axios";
+import { Action } from 'redux';
+import { AxiosResponse } from 'axios';
+import { PayloadAction } from './payloadAction';
+import { Post } from '../interfaces/docs';
+import { ErrorAction, ErrorResponse } from './errorAction';
 
 export enum CurrentPostActions {
-    SET_CURRENT_POST = "SET_CURRENT_POST",
-    GET_CURRENT_POST_REQUESTED = "GET_CURRENT_POST_REQUESTED",
-    GET_CURRENT_POST_SUCCEEDED = "GET_CURRENT_POST_SUCCEEDED",
-    GET_CURRENT_POST_FAILED = "GET_CURRENT_POST_FAILED"
+    SET_CURRENT_POST = 'SET_CURRENT_POST',
+    GET_CURRENT_POST_REQUESTED = 'GET_CURRENT_POST_REQUESTED',
+    GET_CURRENT_POST_SUCCEEDED = 'GET_CURRENT_POST_SUCCEEDED',
+    GET_CURRENT_POST_FAILED = 'GET_CURRENT_POST_FAILED'
 }
 
 export interface CurrentPost
@@ -33,29 +33,29 @@ export type CurrentPostActionsType =
     | GetCurrentPostSucceeded
     | GetCurrentPostFailed
 
-export function setCurrentPost(id:string): CurrentPost {
-    return {
-        type: CurrentPostActions.SET_CURRENT_POST,
-        payload: id
-    }
+export function setCurrentPost(id: string): CurrentPost {
+  return {
+    type: CurrentPostActions.SET_CURRENT_POST,
+    payload: id,
+  };
 }
 
 export function getCurrentPostRequested(): GetCurrentPostRequested {
-    return {
-        type: CurrentPostActions.GET_CURRENT_POST_REQUESTED
-    }
+  return {
+    type: CurrentPostActions.GET_CURRENT_POST_REQUESTED,
+  };
 }
 
 export function getCurrentPostSucceeded(post: Post): GetCurrentPostSucceeded {
-    return {
-        type: CurrentPostActions.GET_CURRENT_POST_SUCCEEDED,
-        payload: post
-    }
+  return {
+    type: CurrentPostActions.GET_CURRENT_POST_SUCCEEDED,
+    payload: post,
+  };
 }
 
-export function getCurrentPostFailed(errorResponse:AxiosResponse<ErrorResponse>): GetCurrentPostFailed {
-    return {
-        type: CurrentPostActions.GET_CURRENT_POST_FAILED,
-        error: errorResponse
-    }
+export function getCurrentPostFailed(errorResponse: AxiosResponse<ErrorResponse>): GetCurrentPostFailed {
+  return {
+    type: CurrentPostActions.GET_CURRENT_POST_FAILED,
+    error: errorResponse,
+  };
 }

@@ -1,13 +1,13 @@
-import {Action} from "redux";
-import {PayloadAction} from "./payloadAction";
-import {Docs} from "../interfaces/docs";
-import {ErrorAction, ErrorResponse} from "./errorAction";
-import {AxiosResponse} from "axios";
+import { Action } from 'redux';
+import { AxiosResponse } from 'axios';
+import { PayloadAction } from './payloadAction';
+import { Docs } from '../interfaces/docs';
+import { ErrorAction, ErrorResponse } from './errorAction';
 
 export enum GetPopularPostsActions {
-    GET_POPULAR_POSTS_REQUESTED = "GET_POPULAR_POSTS_REQUESTED",
-    GET_POPULAR_POSTS_SUCCEEDED = "GET_POPULAR_POSTS_SUCCEEDED",
-    GET_POPULAR_POSTS_FAILED = "GET_POPULAR_POSTS_FAILED",
+    GET_POPULAR_POSTS_REQUESTED = 'GET_POPULAR_POSTS_REQUESTED',
+    GET_POPULAR_POSTS_SUCCEEDED = 'GET_POPULAR_POSTS_SUCCEEDED',
+    GET_POPULAR_POSTS_FAILED = 'GET_POPULAR_POSTS_FAILED',
 }
 
 export interface GetPopularPostsRequested
@@ -30,22 +30,23 @@ export type PopularPostsActions =
 
 
 export function getPopularPostsRequested(): GetPopularPostsRequested {
-    return {
-        type: GetPopularPostsActions.GET_POPULAR_POSTS_REQUESTED
-    };
+  return {
+    type: GetPopularPostsActions.GET_POPULAR_POSTS_REQUESTED,
+  };
 }
 
 export function getPopularPostsSucceeded(docs: Docs): GetPopularPostsSucceeded {
-    return {
-        type: GetPopularPostsActions.GET_POPULAR_POSTS_SUCCEEDED,
-        payload: docs,
-    }
+  return {
+    type: GetPopularPostsActions.GET_POPULAR_POSTS_SUCCEEDED,
+    payload: docs,
+  };
 }
 
 export function getPopularPostsFailed(
-    errorResponse:AxiosResponse<ErrorResponse>): GetPopularPostsFailed {
-    return {
-        type: GetPopularPostsActions.GET_POPULAR_POSTS_FAILED,
-        error: errorResponse
-    }
+  errorResponse: AxiosResponse<ErrorResponse>,
+): GetPopularPostsFailed {
+  return {
+    type: GetPopularPostsActions.GET_POPULAR_POSTS_FAILED,
+    error: errorResponse,
+  };
 }

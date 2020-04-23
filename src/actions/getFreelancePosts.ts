@@ -1,13 +1,13 @@
-import {Action} from "redux";
-import {PayloadAction} from "./payloadAction";
-import {Docs} from "../interfaces/docs";
-import {ErrorAction, ErrorResponse} from "./errorAction";
-import {AxiosResponse} from "axios";
+import { Action } from 'redux';
+import { AxiosResponse } from 'axios';
+import { PayloadAction } from './payloadAction';
+import { Docs } from '../interfaces/docs';
+import { ErrorAction, ErrorResponse } from './errorAction';
 
 export enum GetFreelancePostsActions {
-    GET_FREELANCE_POSTS_REQUESTED = "GET_FREELANCE_POSTS_REQUESTED",
-    GET_FREELANCE_POSTS_SUCCEEDED = "GET_FREELANCE_POSTS_SUCCEEDED",
-    GET_FREELANCE_POSTS_FAILED = "GET_FREELANCE_POSTS_FAILED",
+    GET_FREELANCE_POSTS_REQUESTED = 'GET_FREELANCE_POSTS_REQUESTED',
+    GET_FREELANCE_POSTS_SUCCEEDED = 'GET_FREELANCE_POSTS_SUCCEEDED',
+    GET_FREELANCE_POSTS_FAILED = 'GET_FREELANCE_POSTS_FAILED',
 }
 
 export interface GetFreelancePostsRequested
@@ -30,22 +30,23 @@ export type FreelancePostsActions =
 
 
 export function getFreelancePostsRequested(): GetFreelancePostsRequested {
-    return {
-        type: GetFreelancePostsActions.GET_FREELANCE_POSTS_REQUESTED
-    };
+  return {
+    type: GetFreelancePostsActions.GET_FREELANCE_POSTS_REQUESTED,
+  };
 }
 
 export function getFreelancePostsSucceeded(docs: Docs): GetFreelancePostsSucceeded {
-    return {
-        type: GetFreelancePostsActions.GET_FREELANCE_POSTS_SUCCEEDED,
-        payload: docs,
-    }
+  return {
+    type: GetFreelancePostsActions.GET_FREELANCE_POSTS_SUCCEEDED,
+    payload: docs,
+  };
 }
 
 export function getFreelancePostsFailed(
-    errorResponse:AxiosResponse<ErrorResponse>): GetFreelancePostsFailed {
-    return {
-        type: GetFreelancePostsActions.GET_FREELANCE_POSTS_FAILED,
-        error: errorResponse
-    }
+  errorResponse: AxiosResponse<ErrorResponse>,
+): GetFreelancePostsFailed {
+  return {
+    type: GetFreelancePostsActions.GET_FREELANCE_POSTS_FAILED,
+    error: errorResponse,
+  };
 }
