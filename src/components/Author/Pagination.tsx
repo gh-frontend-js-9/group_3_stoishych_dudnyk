@@ -12,22 +12,7 @@ interface IProps {
 
 
 const Pagination:React.FC<IProps> = (props) => {
-    
     let { current, pages } = props;
-
-    // let pageArray: number[] = [];
-    // for (let i=1; i <= pages; i++) pageArray.push(i);
-
-    // const nextPage = () => {
-    //     if (current !== pages)
-    //         props.changeCurrentPage(current+1);
-    // }
-
-    // const prevPage = () => {
-    //     if (current !== 1)
-    //         props.changeCurrentPage(current-1);
-    // }
-
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -36,9 +21,9 @@ const Pagination:React.FC<IProps> = (props) => {
     const Page =(props:PaginationComponentProps):JSX.Element => (
         <li onClick={props.onClick}
             className={"pagination__number " + (props.isActive ? "pagination__number_active" : "")}>
-        
+
             {props.value}
-        </li> 
+        </li>
     );
 
     const Ellipsis = (props:PaginationComponentProps):JSX.Element => (
@@ -46,28 +31,28 @@ const Pagination:React.FC<IProps> = (props) => {
             <FontAwesomeIcon icon='ellipsis-h'/>
         </li>
     );
-      
+
     const PreviousPageLink = (props:PaginationComponentProps):JSX.Element => (
         <li onClick={props.onClick} className="pagination__number">
             <FontAwesomeIcon icon="chevron-left" />
         </li>
     )
-    
+
     const NextPageLink = (props:PaginationComponentProps):JSX.Element => (
         <li onClick={props.onClick} className="pagination__number">
             <FontAwesomeIcon icon="chevron-right" />
         </li>
 
     )
-    
+
     const LastPageLink = (props:PaginationComponentProps):JSX.Element => {
         return <></>
     }
-    
+
     const FirstPageLink= (props:PaginationComponentProps):JSX.Element => {
         return <></>
     }
-    
+
     const Wrapper = (props: {children:React.ReactNode}):JSX.Element => {
         return <ul className="pagination">{props.children}</ul>
     }
@@ -80,7 +65,7 @@ const Pagination:React.FC<IProps> = (props) => {
         'NEXT_PAGE_LINK': NextPageLink,
         'LAST_PAGE_LINK': LastPageLink
     };
-    
+
     const UltimatePagination:React.ComponentType<UltimatePaginationProps>  =  createUltimatePagination({itemTypeToComponent, WrapperComponent:Wrapper} );
 
     return (
@@ -93,6 +78,6 @@ const Pagination:React.FC<IProps> = (props) => {
             hideFirstAndLastPageLinks={false}
         />
     )
-} 
+}
 
 export default Pagination;

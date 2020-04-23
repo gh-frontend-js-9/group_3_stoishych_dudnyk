@@ -32,12 +32,10 @@ library.add(faVk, faPinterestP, faInstagram, faTwitter, faFacebookF,
 export function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
-    
+
 
 function App() {
     const dispatch = useDispatch();
-    // It can be 1 state with all posts, but unfortunately I didn't find a route to get all posts in normal way
-    // at first time, so let it be as 3 reducers
     useEffect(() => {
         dispatch(getPopularPostsRequested());
         dispatch(getEssentialPostsRequested());

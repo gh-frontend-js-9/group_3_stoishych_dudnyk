@@ -11,7 +11,6 @@ interface IProps {
 }
 
 export const ReadingCardsContainer:React.FC<IProps> = ({settings}) => {
-    //just to make more then 3 elements in slider, when categories will be more then 4-5, then I'll parse it from back
     const pseudoData = [
         {
             title: "UI design",
@@ -42,8 +41,6 @@ export const ReadingCardsContainer:React.FC<IProps> = ({settings}) => {
             href: "#"
         }
     ];
-
-    // idk how to do it in normal way, but working good
 
     const sliderNext = useRef(null);
 
